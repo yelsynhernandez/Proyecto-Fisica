@@ -33,13 +33,14 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcPrincipal = new System.Windows.Forms.TabControl();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tpMRU = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.rbFuncion1 = new System.Windows.Forms.RadioButton();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
-            this.tabControl1.SuspendLayout();
+            this.tpMRU.SuspendLayout();
             this.SuspendLayout();
             // 
             // msPrincipal
@@ -65,7 +66,7 @@
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(121, 26);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -75,12 +76,32 @@
             this.tcPrincipal.Controls.Add(this.tabPage4);
             this.tcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPrincipal.Location = new System.Drawing.Point(0, 28);
-            this.tcPrincipal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tcPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.tcPrincipal.Name = "tcPrincipal";
             this.tcPrincipal.SelectedIndex = 0;
             this.tcPrincipal.Size = new System.Drawing.Size(882, 725);
             this.tcPrincipal.TabIndex = 1;
-           
+            // 
+            // tpMRU
+            // 
+            this.tpMRU.Controls.Add(this.rbFuncion1);
+            this.tpMRU.Location = new System.Drawing.Point(4, 29);
+            this.tpMRU.Name = "tpMRU";
+            this.tpMRU.Padding = new System.Windows.Forms.Padding(3);
+            this.tpMRU.Size = new System.Drawing.Size(874, 692);
+            this.tpMRU.TabIndex = 0;
+            this.tpMRU.Text = "MRU";
+            this.tpMRU.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 29);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(874, 692);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -100,25 +121,17 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // tpMRU
+            // rbFuncion1
             // 
-            this.tpMRU.Location = new System.Drawing.Point(4, 29);
-            this.tpMRU.Name = "tpMRU";
-            this.tpMRU.Padding = new System.Windows.Forms.Padding(3);
-            this.tpMRU.Size = new System.Drawing.Size(874, 692);
-            this.tpMRU.TabIndex = 0;
-            this.tpMRU.Text = "MRU";
-            this.tpMRU.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 29);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(874, 692);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "tabPage4";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.rbFuncion1.AutoSize = true;
+            this.rbFuncion1.Font = new System.Drawing.Font("Mongolian Baiti", 14F);
+            this.rbFuncion1.Location = new System.Drawing.Point(80, 65);
+            this.rbFuncion1.Name = "rbFuncion1";
+            this.rbFuncion1.Size = new System.Drawing.Size(90, 29);
+            this.rbFuncion1.TabIndex = 0;
+            this.rbFuncion1.TabStop = true;
+            this.rbFuncion1.Text = "x = vt";
+            this.rbFuncion1.UseVisualStyleBackColor = true;
             // 
             // FrmPrincipal
             // 
@@ -130,14 +143,15 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.msPrincipal;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Proyecto - Física I";
             this.msPrincipal.ResumeLayout(false);
             this.msPrincipal.PerformLayout();
             this.tcPrincipal.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
+            this.tpMRU.ResumeLayout(false);
+            this.tpMRU.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,6 +167,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.TabPage tpMRU;
         private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.RadioButton rbFuncion1;
     }
 }
 
