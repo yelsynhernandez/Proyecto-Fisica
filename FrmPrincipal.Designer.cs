@@ -37,10 +37,13 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.rbFuncion1 = new System.Windows.Forms.RadioButton();
+            this.lblEcuacion = new System.Windows.Forms.Label();
+            this.cbEcuaciones = new System.Windows.Forms.ComboBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpMRU.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // msPrincipal
@@ -84,13 +87,15 @@
             // 
             // tpMRU
             // 
-            this.tpMRU.Controls.Add(this.rbFuncion1);
+            this.tpMRU.Controls.Add(this.pictureBox1);
+            this.tpMRU.Controls.Add(this.cbEcuaciones);
+            this.tpMRU.Controls.Add(this.lblEcuacion);
             this.tpMRU.Location = new System.Drawing.Point(4, 29);
             this.tpMRU.Name = "tpMRU";
             this.tpMRU.Padding = new System.Windows.Forms.Padding(3);
             this.tpMRU.Size = new System.Drawing.Size(874, 692);
             this.tpMRU.TabIndex = 0;
-            this.tpMRU.Text = "MRU";
+            this.tpMRU.Text = "Fase 1";
             this.tpMRU.UseVisualStyleBackColor = true;
             // 
             // tabPage4
@@ -98,7 +103,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 29);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(874, 692);
+            this.tabPage4.Size = new System.Drawing.Size(874, 690);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "tabPage4";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -121,17 +126,30 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // rbFuncion1
+            // lblEcuacion
             // 
-            this.rbFuncion1.AutoSize = true;
-            this.rbFuncion1.Font = new System.Drawing.Font("Mongolian Baiti", 14F);
-            this.rbFuncion1.Location = new System.Drawing.Point(80, 65);
-            this.rbFuncion1.Name = "rbFuncion1";
-            this.rbFuncion1.Size = new System.Drawing.Size(90, 29);
-            this.rbFuncion1.TabIndex = 0;
-            this.rbFuncion1.TabStop = true;
-            this.rbFuncion1.Text = "x = vt";
-            this.rbFuncion1.UseVisualStyleBackColor = true;
+            this.lblEcuacion.AutoSize = true;
+            this.lblEcuacion.Location = new System.Drawing.Point(165, 87);
+            this.lblEcuacion.Name = "lblEcuacion";
+            this.lblEcuacion.Size = new System.Drawing.Size(168, 20);
+            this.lblEcuacion.TabIndex = 0;
+            this.lblEcuacion.Text = "Seleccione ecuación:";
+            // 
+            // cbEcuaciones
+            // 
+            this.cbEcuaciones.FormattingEnabled = true;
+            this.cbEcuaciones.Location = new System.Drawing.Point(339, 84);
+            this.cbEcuaciones.Name = "cbEcuaciones";
+            this.cbEcuaciones.Size = new System.Drawing.Size(349, 28);
+            this.cbEcuaciones.TabIndex = 1;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(252, 137);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(302, 148);
+            this.pictureBox1.TabIndex = 2;
+            this.pictureBox1.TabStop = false;
             // 
             // FrmPrincipal
             // 
@@ -152,6 +170,7 @@
             this.tcPrincipal.ResumeLayout(false);
             this.tpMRU.ResumeLayout(false);
             this.tpMRU.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,7 +186,9 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.TabPage tpMRU;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.RadioButton rbFuncion1;
+        private System.Windows.Forms.ComboBox cbEcuaciones;
+        private System.Windows.Forms.Label lblEcuacion;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
