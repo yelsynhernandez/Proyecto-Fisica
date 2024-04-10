@@ -82,9 +82,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <None Include="Resources\x_vt.png" />
+    <None Include="Resources\tiempo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\distancia.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocidad.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

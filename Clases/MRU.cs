@@ -1,18 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace ProyectoFisica.Clases
 {
     internal class MRU
     {
-        private Dictionary<string, string> formulas = new Dictionary<string, string>();
-        public double Velocidad(double x, double t)
-        {
-            return x / t;
-        }
+        private Dictionary<string, Bitmap> listaFormulas = new Dictionary<string, Bitmap>();
 
         public double Distancia(double v, double t)
         {
             return v * t;
+        }
+
+        public double Velocidad(double x, double t)
+        {
+            return x / t;
         }
 
         public double Tiempo(double x, double v)
@@ -20,15 +24,24 @@ namespace ProyectoFisica.Clases
             return x / v;
         }
 
-        public double VelocidadFinal(double Xo, double v, double t)
+        public double DistanciaFinal(double Xo, double v, double t)
         {
             return Xo + (v * t);
         }
 
-        public Dictionary<string, string> DevolverFormulas()
+        public void CargarFormulas(ComboBox cb)
         {
-            formulas.Add("Velocidad", "global::ProyectoFisica.Properties.Resources.x_vt");
-            return formulas;
+            listaFormulas.Add("Distancia", Properties.Resources.distancia);
+            listaFormulas.Add("Tiempo", Properties.Resources.tiempo);
+            listaFormulas.Add("Velocidad", Properties.Resources.velocidad);
+            listaFormulas.Add("Distancia Final", Properties.Resources.distancia_final);
+            cb.Items.Clear();
+            cb.Items.AddRange(listaFormulas.Keys.ToArray());
+        }
+
+        public Bitmap ImagenFormula(string nombre)
+        {
+            return listaFormulas[nombre];
         }
     }
 }
