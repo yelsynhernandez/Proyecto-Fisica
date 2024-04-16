@@ -3,63 +3,63 @@ go
 begin try
 begin transaction
 	--================================================================== Típos de unidades de medida
-	insert into tipo_medida (nombre) values ('masa');
-	insert into tipo_medida (nombre) values ('longitud');
-	insert into tipo_medida (nombre) values ('tiempo');
-	insert into tipo_medida (nombre) values ('volumen');
-	insert into tipo_medida (nombre) values ('temperatura');
-	insert into tipo_medida (nombre) values ('velocidad');
+	insert into tipo_medida (nombre) values ('Masa');
+	insert into tipo_medida (nombre) values ('Longitud');
+	insert into tipo_medida (nombre) values ('Tiempo');
+	insert into tipo_medida (nombre) values ('Volumen');
+	insert into tipo_medida (nombre) values ('Temperatura');
+	insert into tipo_medida (nombre) values ('Velocidad');
 
 	--================================================================== Medidas
 	-- Unidades de medida para masa
-	insert into medida (id_tipo_medida, nombre) values (1, 'kilogramo');
-	insert into medida (id_tipo_medida, nombre) values (1, 'gramo');
-	insert into medida (id_tipo_medida, nombre) values (1, 'tonelada');
-	insert into medida (id_tipo_medida, nombre) values (1, 'libra');
-	insert into medida (id_tipo_medida, nombre) values (1, 'onza');
-	insert into medida (id_tipo_medida, nombre) values (1, 'miligramo');
-	insert into medida (id_tipo_medida, nombre) values (1, 'arroba');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Kilogramo');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Gramo');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Tonelada');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Libra');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Onza');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Miligramo');
+	insert into medida (id_tipo_medida, nombre) values (1, 'Arroba');
 
 	-- unidades de medida para longitud
-	insert into medida (id_tipo_medida, nombre) values (2, 'metro');
-	insert into medida (id_tipo_medida, nombre) values (2, 'centímetro');
-	insert into medida (id_tipo_medida, nombre) values (2, 'milímetro');
-	insert into medida (id_tipo_medida, nombre) values (2, 'kilómetro');
-	insert into medida (id_tipo_medida, nombre) values (2, 'milla');
-	insert into medida (id_tipo_medida, nombre) values (2, 'yarda');
-	insert into medida (id_tipo_medida, nombre) values (2, 'pie');
-	insert into medida (id_tipo_medida, nombre) values (2, 'pulgada');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Metro');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Centímetro');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Milímetro');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Kilómetro');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Milla');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Yarda');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Pie');
+	insert into medida (id_tipo_medida, nombre) values (2, 'Pulgada');
 
 	-- Unidades de medida para tiempo
-	insert into medida (id_tipo_medida, nombre) values (3, 'segundo');
-	insert into medida (id_tipo_medida, nombre) values (3, 'minuto');
-	insert into medida (id_tipo_medida, nombre) values (3, 'hora');
-	insert into medida (id_tipo_medida, nombre) values (3, 'día');
-	insert into medida (id_tipo_medida, nombre) values (3, 'semana');
-	insert into medida (id_tipo_medida, nombre) values (3, 'mes');
-	insert into medida (id_tipo_medida, nombre) values (3, 'año');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Segundo');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Minuto');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Hora');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Día');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Semana');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Mes');
+	insert into medida (id_tipo_medida, nombre) values (3, 'Año');
 
 	-- Insertando medidas de volumen en la tabla medida
-	insert into medida (id_tipo_medida, nombre) values (4, 'litro');
-	insert into medida (id_tipo_medida, nombre) values (4, 'mililitro');
-	insert into medida (id_tipo_medida, nombre) values (4, 'centímetro cúbico');
-	insert into medida (id_tipo_medida, nombre) values (4, 'galón');
-	insert into medida (id_tipo_medida, nombre) values (4, 'pulgada cúbica');
-	insert into medida (id_tipo_medida, nombre) values (4, 'pie cúbico');
+	insert into medida (id_tipo_medida, nombre) values (4, 'Litro');
+	insert into medida (id_tipo_medida, nombre) values (4, 'Mililitro');
+	insert into medida (id_tipo_medida, nombre) values (4, 'Centímetro cúbico');
+	insert into medida (id_tipo_medida, nombre) values (4, 'Galón');
+	insert into medida (id_tipo_medida, nombre) values (4, 'Pulgada cúbica');
+	insert into medida (id_tipo_medida, nombre) values (4, 'Pie cúbico');
 
 	-- Unidades de medida para temperatura
-	insert into medida (id_tipo_medida, nombre) values (5, 'celsius');
+	insert into medida (id_tipo_medida, nombre) values (5, 'Celsius');
 	insert into medida (id_tipo_medida, nombre) values (5, 'fahrenheit');
-	insert into medida (id_tipo_medida, nombre) values (5, 'kelvin');
+	insert into medida (id_tipo_medida, nombre) values (5, 'Kelvin');
 
 	-- Unidades de medida para velocidad
-	insert into medida (id_tipo_medida, nombre) values (6, 'metros por segundo');
-	insert into medida (id_tipo_medida, nombre) values (6, 'kilómetros por hora');
-	insert into medida (id_tipo_medida, nombre) values (6, 'millas por hora');
-	insert into medida (id_tipo_medida, nombre) values (6, 'pies por segundo');
-	insert into medida (id_tipo_medida, nombre) values (6, 'pies por minuto');
-	insert into medida (id_tipo_medida, nombre) values (6, 'pulgadas por segundo');
-	insert into medida (id_tipo_medida, nombre) values (6, 'pulgadas por minuto');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Metros por segundo');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Kilómetros por hora');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Millas por hora');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Pies por segundo');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Pies por minuto');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Pulgadas por segundo');
+	insert into medida (id_tipo_medida, nombre) values (6, 'Pulgadas por minuto');
 
 	-- Equivalencias
 	--================================================================== Masa

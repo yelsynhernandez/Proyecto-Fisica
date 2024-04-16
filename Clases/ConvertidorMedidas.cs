@@ -11,7 +11,7 @@ namespace ProyectoFisica.Clases
         {
             return new SqlConnection($"Data Source=localhost;Initial Catalog=proyecto_fisica;Integrated Security=True;");
         }
-        public void LlenarComboBox(ComboBox comboBox, string nombreProcedimiento)
+        public void LlenarComboBox(ComboBox comboBox)
         {
             comboBox.Items.Clear();
             comboBox.Items.Add("Seleccionar");
@@ -22,7 +22,7 @@ namespace ProyectoFisica.Clases
                 try
                 {
                     conexion.Open();
-                    SqlCommand comando = new SqlCommand(nombreProcedimiento, conexion);
+                    SqlCommand comando = new SqlCommand("listado_categorias", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
                     SqlDataReader reader = comando.ExecuteReader();
@@ -96,9 +96,9 @@ namespace ProyectoFisica.Clases
             }
         }
 
-        public decimal ConvertirMedidas(int idMedidaOrigen, int idMedidaDestino, decimal valor)
+        public float ConvertirMedidas(string medida_origen, string medida_destino, float cantidad)
         {
-            decimal resultado = 0;
+            float resultado = 0;
 
             using (SqlConnection conexion = CrearConexion())
             {
@@ -108,14 +108,15 @@ namespace ProyectoFisica.Clases
                     SqlCommand comando = new SqlCommand("convertir", conexion);
                     comando.CommandType = CommandType.StoredProcedure;
 
-                    comando.Parameters.AddWithValue("@id_medida_origen", idMedidaOrigen);
-                    comando.Parameters.AddWithValue("@id_medida_destino", idMedidaDestino);
-                    comando.Parameters.AddWithValue("@valor", valor);
+                    comando.Parameters.AddWithValue("@medida_origen", medida_origen);
+                    comando.Parameters.AddWithValue("@medida_destino", medida_destino);
+                    comando.Parameters.AddWithValue("@cantidad", cantidad);
+                    comando.Parameters.Add("@valor", SqlDbType.Float);
                     comando.Parameters["@valor"].Direction = ParameterDirection.Output;
 
                     comando.ExecuteNonQuery();
 
-                    resultado = Convert.ToDecimal(comando.Parameters["@valor"].Value);
+                    resultado = float.Parse(comando.Parameters["@valor"].Value.ToString());
                 }
                 catch (Exception ex)
                 {

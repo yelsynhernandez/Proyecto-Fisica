@@ -25,18 +25,10 @@ namespace ProyectoFisica
         {
             CargarFormulasMRU();
             CargarTipoMedida();
+            txtCantidad.Focus();
         }
 
-        private void CargarFormulasMRU()
-        {
-            mru.CargarFormulas(cbEcuaciones);
-        }
-
-        private void CargarTipoMedida()
-        {
-            cm.LlenarComboBox(cbTipoMedida,"listado_categorias");
-        }
-
+        //----------------------------------------------- Convertidor
         private void cbEcuaciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ecuacion = cbEcuaciones.SelectedItem.ToString();
@@ -48,7 +40,82 @@ namespace ProyectoFisica
             if(cbTipoMedida.SelectedIndex != 0)
             {
                 cm.CargarMedidas(cbOrigen, cbDestino, cbTipoMedida.Text);
+                LimpiarControles();
             }            
+        }
+
+        private void btnCalcular_Click(object sender, EventArgs e)
+        {
+            bool error = false;
+            string msj = String.Empty;
+            float cantidad = 0;
+
+            try
+            {
+                cantidad = float.Parse(txtCantidad.Text);
+            }
+            catch(Exception)
+            {
+                msj = "La cantidad ingresada no es numérica";
+                error = true;
+            }
+
+            if( cbOrigen.SelectedIndex == 0 || cbDestino.SelectedIndex == 0)
+            {
+                msj = "Deben escogerse las medidas de origen y destino para convertir";
+                error = true;
+            }
+
+            if (cbOrigen.SelectedIndex != cbDestino.SelectedIndex)
+            {
+                txtResultado.Text = cm.ConvertirMedidas(cbOrigen.Text, cbDestino.Text, cantidad).ToString();
+            }
+            else
+            {
+                if (error)
+                {
+                    MessageBox.Show(msj, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    txtResultado.Text = txtCantidad.Text;
+                }
+            }
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarControles();
+        }
+        private void CargarTipoMedida()
+        {
+            cm.LlenarComboBox(cbTipoMedida);
+        }
+
+        private void LimpiarControles()
+        {
+            txtCantidad.Text = String.Empty;
+            txtResultado.Text= String.Empty;
+            txtCantidad.Focus();
+            cbOrigen.SelectedIndex = 0;
+            cbDestino.SelectedIndex = 0;
+        }
+
+        private void cbOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtResultado.Text = String.Empty;
+        }
+
+        private void cbDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtResultado.Text = String.Empty;
+        }
+
+
+        //---------------------------------------------------------------- MRU
+        private void CargarFormulasMRU()
+        {
+            mru.CargarFormulas(cbEcuaciones);
         }
     }
 }

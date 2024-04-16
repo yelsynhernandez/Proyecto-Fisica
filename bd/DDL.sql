@@ -38,7 +38,7 @@ go
 create table equivalencia_medida(
 	id_medida_origen int not null,
 	id_medida_destino int not null,
-	valor decimal(38,6) not null
+	valor float not null
 	constraint pk_equivalencias
 	    primary key(id_medida_origen,id_medida_destino),
 	constraint fk_medida_origen
@@ -67,18 +67,30 @@ begin
 end
 go
 create procedure convertir(
-	@id_origen int,
-	@id_destino int,
-	@valor decimal(35,4) output
+	@medida_origen varchar(50),
+	@medida_destino varchar(50),
+	@cantidad float,
+	@valor float output
 )
 as
 begin
-	if @id_origen = @id_destino
+	if @medida_origen = @medida_destino
 	begin
 		raiserror ('El ID es igual', 16,1)
 	end
 
-	set @valor = (select @valor * valor from equivalencia_medida where id_medida_origen = @id_origen and id_medida_destino = @id_destino)
+	declare @id_medida_origen int,
+	        @id_medida_destino int
+
+	set @id_medida_origen = (select id from medida where nombre = @medida_origen)
+	set @id_medida_destino = (select id from medida where nombre = @medida_destino)
+
+	set @valor = (select @cantidad * valor 
+				  from equivalencia_medida em
+				      inner join medida m1 on (em.id_medida_origen = m1.id)
+					  inner join medida m2 on (em.id_medida_destino = m2.id)
+				  where em.id_medida_origen = @id_medida_origen 
+				      and em.id_medida_destino = @id_medida_destino)
 
 	select @valor
 end
