@@ -34,7 +34,7 @@ namespace ProyectoFisica.Clases
             listaFormulas.Add("Distancia", Properties.Resources.distancia);
             listaFormulas.Add("Tiempo", Properties.Resources.tiempo);
             listaFormulas.Add("Velocidad", Properties.Resources.velocidad);
-            listaFormulas.Add("Distancia Final", Properties.Resources.distancia_final);
+            //listaFormulas.Add("Distancia Final", Properties.Resources.distancia_final);
             cb.Items.Clear();
             cb.Items.AddRange(listaFormulas.Keys.ToArray());
         }

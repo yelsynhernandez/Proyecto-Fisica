@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\Despeje.cs" />
+    <Compile Include="Clases\ConvertidorMedidas.cs" />
     <Compile Include="Clases\MRU.cs" />
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>

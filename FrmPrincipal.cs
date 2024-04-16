@@ -1,8 +1,8 @@
-﻿using ProyectoFisica.Clases;
-using System;
+﻿using System;
 using System.Drawing;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using ProyectoFisica.Clases;
 
 namespace ProyectoFisica
 {
@@ -10,6 +10,7 @@ namespace ProyectoFisica
     {
         private Dictionary<string, Bitmap> formulas = new Dictionary<string, Bitmap>();
         MRU mru = new MRU();
+        ConvertidorMedidas  cm = new ConvertidorMedidas();
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -23,6 +24,7 @@ namespace ProyectoFisica
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
             CargarFormulasMRU();
+            CargarTipoMedida();
         }
 
         private void CargarFormulasMRU()
@@ -30,10 +32,23 @@ namespace ProyectoFisica
             mru.CargarFormulas(cbEcuaciones);
         }
 
+        private void CargarTipoMedida()
+        {
+            cm.LlenarComboBox(cbTipoMedida,"listado_categorias");
+        }
+
         private void cbEcuaciones_SelectedIndexChanged(object sender, EventArgs e)
         {
             string ecuacion = cbEcuaciones.SelectedItem.ToString();
             pbEcuacion.Image = mru.ImagenFormula(ecuacion);
+        }
+
+        private void cbTipoMedida_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbTipoMedida.SelectedIndex != 0)
+            {
+                cm.CargarMedidas(cbOrigen, cbDestino, cbTipoMedida.Text);
+            }            
         }
     }
 }
