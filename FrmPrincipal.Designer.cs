@@ -45,13 +45,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTipoMedida = new System.Windows.Forms.ComboBox();
             this.tpFormulas = new System.Windows.Forms.TabPage();
+            this.cbCategoriaEcuacion = new System.Windows.Forms.ComboBox();
+            this.lblCategoriaFormula = new System.Windows.Forms.Label();
             this.pbEcuacion = new System.Windows.Forms.PictureBox();
             this.cbEcuacion = new System.Windows.Forms.ComboBox();
             this.lblEcuacion = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.cbCategoriaEcuacion = new System.Windows.Forms.ComboBox();
-            this.lblCategoriaFormula = new System.Windows.Forms.Label();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpCM.SuspendLayout();
@@ -67,7 +67,7 @@
             this.msPrincipal.Location = new System.Drawing.Point(0, 0);
             this.msPrincipal.Name = "msPrincipal";
             this.msPrincipal.Padding = new System.Windows.Forms.Padding(10, 2, 0, 2);
-            this.msPrincipal.Size = new System.Drawing.Size(982, 30);
+            this.msPrincipal.Size = new System.Drawing.Size(982, 25);
             this.msPrincipal.TabIndex = 0;
             this.msPrincipal.Text = "Menú";
             // 
@@ -77,13 +77,13 @@
             this.salirToolStripMenuItem});
             this.archivoToolStripMenuItem.Font = new System.Drawing.Font("Arial", 11F);
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(87, 26);
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(68, 21);
             this.archivoToolStripMenuItem.Text = "Archivo";
             // 
             // salirToolStripMenuItem
             // 
             this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(131, 26);
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.salirToolStripMenuItem.Text = "Salir";
             this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
@@ -92,11 +92,11 @@
             this.tcPrincipal.Controls.Add(this.tpCM);
             this.tcPrincipal.Controls.Add(this.tpFormulas);
             this.tcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tcPrincipal.Location = new System.Drawing.Point(0, 30);
+            this.tcPrincipal.Location = new System.Drawing.Point(0, 25);
             this.tcPrincipal.Margin = new System.Windows.Forms.Padding(4);
             this.tcPrincipal.Name = "tcPrincipal";
             this.tcPrincipal.SelectedIndex = 0;
-            this.tcPrincipal.Size = new System.Drawing.Size(982, 723);
+            this.tcPrincipal.Size = new System.Drawing.Size(982, 728);
             this.tcPrincipal.TabIndex = 1;
             this.tcPrincipal.SelectedIndexChanged += new System.EventHandler(this.tcPrincipal_SelectedIndexChanged);
             // 
@@ -112,17 +112,17 @@
             this.tpCM.Controls.Add(this.cbOrigen);
             this.tpCM.Controls.Add(this.label1);
             this.tpCM.Controls.Add(this.cbTipoMedida);
-            this.tpCM.Location = new System.Drawing.Point(4, 30);
+            this.tpCM.Location = new System.Drawing.Point(4, 26);
             this.tpCM.Name = "tpCM";
             this.tpCM.Padding = new System.Windows.Forms.Padding(3);
-            this.tpCM.Size = new System.Drawing.Size(974, 689);
+            this.tpCM.Size = new System.Drawing.Size(974, 698);
             this.tpCM.TabIndex = 0;
             this.tpCM.Text = "Convertidor de medidas";
             this.tpCM.UseVisualStyleBackColor = true;
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(285, 483);
+            this.btnLimpiar.Location = new System.Drawing.Point(510, 442);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(111, 35);
             this.btnLimpiar.TabIndex = 11;
@@ -135,7 +135,7 @@
             this.txtCantidad.Location = new System.Drawing.Point(271, 246);
             this.txtCantidad.MaxLength = 38;
             this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Size = new System.Drawing.Size(249, 29);
+            this.txtCantidad.Size = new System.Drawing.Size(249, 24);
             this.txtCantidad.TabIndex = 10;
             // 
             // lblCantidad
@@ -143,14 +143,14 @@
             this.lblCantidad.AutoSize = true;
             this.lblCantidad.Location = new System.Drawing.Point(178, 249);
             this.lblCantidad.Name = "lblCantidad";
-            this.lblCantidad.Size = new System.Drawing.Size(90, 22);
+            this.lblCantidad.Size = new System.Drawing.Size(70, 17);
             this.lblCantidad.TabIndex = 9;
             this.lblCantidad.Text = "Cantidad:";
             // 
             // btnCalcular
             // 
             this.btnCalcular.Font = new System.Drawing.Font("Arial", 12F);
-            this.btnCalcular.Location = new System.Drawing.Point(493, 482);
+            this.btnCalcular.Location = new System.Drawing.Point(271, 442);
             this.btnCalcular.Name = "btnCalcular";
             this.btnCalcular.Size = new System.Drawing.Size(111, 35);
             this.btnCalcular.TabIndex = 8;
@@ -161,10 +161,10 @@
             // txtResultado
             // 
             this.txtResultado.Font = new System.Drawing.Font("Arial", 12F);
-            this.txtResultado.Location = new System.Drawing.Point(526, 331);
+            this.txtResultado.Location = new System.Drawing.Point(526, 328);
             this.txtResultado.Name = "txtResultado";
             this.txtResultado.ReadOnly = true;
-            this.txtResultado.Size = new System.Drawing.Size(192, 30);
+            this.txtResultado.Size = new System.Drawing.Size(192, 26);
             this.txtResultado.TabIndex = 7;
             // 
             // lblMedidaDestino
@@ -173,7 +173,7 @@
             this.lblMedidaDestino.Font = new System.Drawing.Font("Arial", 12F);
             this.lblMedidaDestino.Location = new System.Drawing.Point(238, 331);
             this.lblMedidaDestino.Name = "lblMedidaDestino";
-            this.lblMedidaDestino.Size = new System.Drawing.Size(27, 23);
+            this.lblMedidaDestino.Size = new System.Drawing.Size(21, 18);
             this.lblMedidaDestino.TabIndex = 5;
             this.lblMedidaDestino.Text = "a:";
             // 
@@ -184,7 +184,7 @@
             this.cbDestino.FormattingEnabled = true;
             this.cbDestino.Location = new System.Drawing.Point(271, 328);
             this.cbDestino.Name = "cbDestino";
-            this.cbDestino.Size = new System.Drawing.Size(249, 31);
+            this.cbDestino.Size = new System.Drawing.Size(249, 26);
             this.cbDestino.TabIndex = 4;
             this.cbDestino.SelectedIndexChanged += new System.EventHandler(this.cbDestino_SelectedIndexChanged);
             // 
@@ -195,7 +195,7 @@
             this.cbOrigen.FormattingEnabled = true;
             this.cbOrigen.Location = new System.Drawing.Point(526, 244);
             this.cbOrigen.Name = "cbOrigen";
-            this.cbOrigen.Size = new System.Drawing.Size(192, 31);
+            this.cbOrigen.Size = new System.Drawing.Size(192, 26);
             this.cbOrigen.TabIndex = 2;
             this.cbOrigen.SelectedIndexChanged += new System.EventHandler(this.cbOrigen_SelectedIndexChanged);
             // 
@@ -205,7 +205,7 @@
             this.label1.Font = new System.Drawing.Font("Arial", 12F);
             this.label1.Location = new System.Drawing.Point(165, 151);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 23);
+            this.label1.Size = new System.Drawing.Size(121, 18);
             this.label1.TabIndex = 1;
             this.label1.Text = "Tipo de medida:";
             // 
@@ -216,7 +216,7 @@
             this.cbTipoMedida.FormattingEnabled = true;
             this.cbTipoMedida.Location = new System.Drawing.Point(318, 148);
             this.cbTipoMedida.Name = "cbTipoMedida";
-            this.cbTipoMedida.Size = new System.Drawing.Size(400, 31);
+            this.cbTipoMedida.Size = new System.Drawing.Size(400, 26);
             this.cbTipoMedida.TabIndex = 0;
             this.cbTipoMedida.SelectedIndexChanged += new System.EventHandler(this.cbTipoMedida_SelectedIndexChanged);
             // 
@@ -227,19 +227,38 @@
             this.tpFormulas.Controls.Add(this.pbEcuacion);
             this.tpFormulas.Controls.Add(this.cbEcuacion);
             this.tpFormulas.Controls.Add(this.lblEcuacion);
-            this.tpFormulas.Location = new System.Drawing.Point(4, 30);
+            this.tpFormulas.Location = new System.Drawing.Point(4, 26);
             this.tpFormulas.Name = "tpFormulas";
             this.tpFormulas.Padding = new System.Windows.Forms.Padding(3);
-            this.tpFormulas.Size = new System.Drawing.Size(974, 689);
+            this.tpFormulas.Size = new System.Drawing.Size(974, 698);
             this.tpFormulas.TabIndex = 1;
             this.tpFormulas.Text = "Fórmulas";
             this.tpFormulas.UseVisualStyleBackColor = true;
             // 
+            // cbCategoriaEcuacion
+            // 
+            this.cbCategoriaEcuacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoriaEcuacion.FormattingEnabled = true;
+            this.cbCategoriaEcuacion.Location = new System.Drawing.Point(365, 90);
+            this.cbCategoriaEcuacion.Name = "cbCategoriaEcuacion";
+            this.cbCategoriaEcuacion.Size = new System.Drawing.Size(348, 25);
+            this.cbCategoriaEcuacion.TabIndex = 7;
+            this.cbCategoriaEcuacion.SelectedIndexChanged += new System.EventHandler(this.cbCategoriaFormulas_SelectedIndexChanged);
+            // 
+            // lblCategoriaFormula
+            // 
+            this.lblCategoriaFormula.AutoSize = true;
+            this.lblCategoriaFormula.Location = new System.Drawing.Point(260, 93);
+            this.lblCategoriaFormula.Name = "lblCategoriaFormula";
+            this.lblCategoriaFormula.Size = new System.Drawing.Size(75, 17);
+            this.lblCategoriaFormula.TabIndex = 6;
+            this.lblCategoriaFormula.Text = "Categoría:";
+            // 
             // pbEcuacion
             // 
-            this.pbEcuacion.Location = new System.Drawing.Point(16, 196);
+            this.pbEcuacion.Location = new System.Drawing.Point(6, 196);
             this.pbEcuacion.Name = "pbEcuacion";
-            this.pbEcuacion.Size = new System.Drawing.Size(950, 157);
+            this.pbEcuacion.Size = new System.Drawing.Size(960, 157);
             this.pbEcuacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbEcuacion.TabIndex = 5;
             this.pbEcuacion.TabStop = false;
@@ -250,7 +269,7 @@
             this.cbEcuacion.FormattingEnabled = true;
             this.cbEcuacion.Location = new System.Drawing.Point(365, 141);
             this.cbEcuacion.Name = "cbEcuacion";
-            this.cbEcuacion.Size = new System.Drawing.Size(348, 29);
+            this.cbEcuacion.Size = new System.Drawing.Size(348, 25);
             this.cbEcuacion.TabIndex = 4;
             this.cbEcuacion.SelectedIndexChanged += new System.EventHandler(this.cbEcuacion_SelectedIndexChanged);
             // 
@@ -259,7 +278,7 @@
             this.lblEcuacion.AutoSize = true;
             this.lblEcuacion.Location = new System.Drawing.Point(172, 144);
             this.lblEcuacion.Name = "lblEcuacion";
-            this.lblEcuacion.Size = new System.Drawing.Size(191, 22);
+            this.lblEcuacion.Size = new System.Drawing.Size(147, 17);
             this.lblEcuacion.TabIndex = 3;
             this.lblEcuacion.Text = "Seleccione ecuación:";
             // 
@@ -281,28 +300,9 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // cbCategoriaEcuacion
-            // 
-            this.cbCategoriaEcuacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoriaEcuacion.FormattingEnabled = true;
-            this.cbCategoriaEcuacion.Location = new System.Drawing.Point(365, 90);
-            this.cbCategoriaEcuacion.Name = "cbCategoriaEcuacion";
-            this.cbCategoriaEcuacion.Size = new System.Drawing.Size(348, 29);
-            this.cbCategoriaEcuacion.TabIndex = 7;
-            this.cbCategoriaEcuacion.SelectedIndexChanged += new System.EventHandler(this.cbCategoriaFormulas_SelectedIndexChanged);
-            // 
-            // lblCategoriaFormula
-            // 
-            this.lblCategoriaFormula.AutoSize = true;
-            this.lblCategoriaFormula.Location = new System.Drawing.Point(260, 93);
-            this.lblCategoriaFormula.Name = "lblCategoriaFormula";
-            this.lblCategoriaFormula.Size = new System.Drawing.Size(99, 22);
-            this.lblCategoriaFormula.TabIndex = 6;
-            this.lblCategoriaFormula.Text = "Categoría:";
-            // 
             // FrmPrincipal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(982, 753);
             this.Controls.Add(this.tcPrincipal);

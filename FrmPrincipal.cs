@@ -8,7 +8,6 @@ namespace ProyectoFisica
     public partial class FrmPrincipal : Form
     {
         MRU mru = new MRU();
-        private int ultimoIndiceTipoMedida = 0;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -27,7 +26,7 @@ namespace ProyectoFisica
 
         //----------------------------------------------- Convertidor
         ConvertidorMedidas cm = new ConvertidorMedidas();
-
+        private int ultimoIndiceTipoMedida = 0;
         private void cbTipoMedida_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cbTipoMedida.SelectedIndex != 0 &&
@@ -123,24 +122,26 @@ namespace ProyectoFisica
             }
         }
 
+        int ultimoIndiceEcuacion = 0;
         private void cbEcuacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                if (cbEcuacion.SelectedIndex != 0)
+                if (cbEcuacion.SelectedIndex != 0 &&
+                    (ultimoIndiceEcuacion != cbEcuacion.SelectedIndex))
                 {
-                    string imagen = cbEcuacion.SelectedItem.ToString();
+                    ultimoIndiceEcuacion = cbEcuacion.SelectedIndex;
+                    string ecuacion = cbEcuacion.SelectedItem.ToString();
+                    string imagen = mru.ImagenFormula(ecuacion);
 
                     if (File.Exists(imagen))
                     {
-                        pbEcuacion.ImageLocation = mru.ImagenFormula(imagen);
+                        pbEcuacion.ImageLocation = imagen;
                     }
                     else
                     {
                         pbEcuacion.ImageLocation = "C:/img/no_encontrado.png";
                     }
-
-                    
                 }
             }
             catch(Exception ex)

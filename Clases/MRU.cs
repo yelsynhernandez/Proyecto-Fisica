@@ -14,7 +14,7 @@ namespace ProyectoFisica.Clases
         private Dictionary<string, string> ecuacion = new Dictionary<string, string>();
         public void CargarCategorias(ComboBox cb)
         {
-            funciones.LlenarComboBox(cb, "listar_categoria_formulas");
+            funciones.LlenarComboBox(cb, "listar_categoria_ecuacion");
         }
 
         public void ActualizarListaEcuaciones(string categoria)
@@ -51,6 +51,7 @@ namespace ProyectoFisica.Clases
         {
             cb.Items.Clear();
             cb.Items.Add("Seleccionar");
+            cb.SelectedIndex = 0;
             try
             {
                 if (ecuacion.Count > 0)

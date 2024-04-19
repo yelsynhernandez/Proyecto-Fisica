@@ -9,10 +9,18 @@ begin transaction
 	insert into categoria_ecuacion (id, nombre) values (4, 'Tiro parabólico');
 	insert into categoria_ecuacion (id, nombre) values (5, 'Movimiento circular uniforme');
 
-	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(5, 'Distancia', 'C:/img/distancia.png');
-	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(5, 'Velocidad', 'C:/img/velocidad.png');
-	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(5, 'Tiempo', 'C:/img/tiempo.png');
-	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(5, 'Distancia final', 'C:/img/distancia_final.png');
+
+	--MRU
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(1, 'Distancia', 'C:/img/mru/distancia.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(1, 'Velocidad', 'C:/img/mru/velocidad.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(1, 'Tiempo', 'C:/img/mru/tiempo.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(1, 'Distancia final', 'C:/img/mrua/distancia_final.png');
+	--MRUA
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(2, 'Velocidad final al cuadrado', 'C:/img/mrua/velocidad_final_cuadrado.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(2, 'Velocidad final', 'C:/img/mrua/velocidad_final.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(2, 'Distancia (Sin aceleración)', 'C:/img/mrua/distancia_sa.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(2, 'Aceleración', 'C:/img/mrua/aceleracion.png');
+	insert into ecuacion(id_categoria_ecuacion, nombre, imagen) values(2, 'Distancia (Con aceleración)', 'C:/img/mrua/distancia_ca.png');
 commit transaction
 end try
 begin catch

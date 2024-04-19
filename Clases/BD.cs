@@ -6,7 +6,7 @@ namespace ProyectoFisica.Clases
     { 
         public SqlConnection CrearConexion()
         {
-            return new SqlConnection("Data Source=localhost;Initial Catalog=proyecto_fisica;Integrated Security=True;");
+            return new SqlConnection("Data Source=DELL-LATITUDE\\SQLEXPRESS;Initial Catalog=proyecto_fisica;Integrated Security=True;");
         }
     }
 }
