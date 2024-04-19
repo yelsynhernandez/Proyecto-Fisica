@@ -85,15 +85,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\tiempo.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\distancia.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\velocidad.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\espera.png" />
   </ItemGroup>
   <ItemGroup>
