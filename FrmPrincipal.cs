@@ -2,6 +2,7 @@
 using System.IO;
 using System.Windows.Forms;
 using ProyectoFisica.Clases;
+using ProyectoFisica.Properties;
 
 namespace ProyectoFisica
 {
@@ -109,6 +110,8 @@ namespace ProyectoFisica
         private void CargarFormulasMRU()
         {
             mru.CargarCategorias(cbCategoriaEcuacion);
+            cbEcuacion.Enabled = false;
+            pbEcuacion.Image = Resources.espera;
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
@@ -140,7 +143,7 @@ namespace ProyectoFisica
                     }
                     else
                     {
-                        pbEcuacion.ImageLocation = "C:/img/no_encontrado.png";
+                        pbEcuacion.Image = Resources.no_encontrado;
                     }
                 }
             }
@@ -154,8 +157,10 @@ namespace ProyectoFisica
         {
             if(cbCategoriaEcuacion.SelectedIndex != 0)
             {
+                pbEcuacion.Image = Resources.espera;
                 mru.ActualizarListaEcuaciones(cbCategoriaEcuacion.Text);
                 mru.CargarEcuaciones(cbEcuacion);
+                cbEcuacion.Enabled = true;
             }
         }
     }

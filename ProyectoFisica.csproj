@@ -93,5 +93,11 @@
   <ItemGroup>
     <None Include="Resources\velocidad.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\espera.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\no_encontrado.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
