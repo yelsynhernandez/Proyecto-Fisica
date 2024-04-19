@@ -304,7 +304,9 @@
             // 
             // pbEcuacion
             // 
-            this.pbEcuacion.Location = new System.Drawing.Point(6, 140);
+            this.pbEcuacion.BackColor = System.Drawing.Color.Transparent;
+            this.pbEcuacion.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbEcuacion.Location = new System.Drawing.Point(6, 127);
             this.pbEcuacion.Name = "pbEcuacion";
             this.pbEcuacion.Size = new System.Drawing.Size(960, 157);
             this.pbEcuacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -313,10 +315,10 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(365, 317);
+            this.textBox1.Location = new System.Drawing.Point(365, 290);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(348, 208);
+            this.textBox1.Size = new System.Drawing.Size(348, 235);
             this.textBox1.TabIndex = 8;
             // 
             // label2
