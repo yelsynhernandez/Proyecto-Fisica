@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
-using System.Drawing;
+﻿using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -7,41 +9,87 @@ namespace ProyectoFisica.Clases
 {
     internal class MRU
     {
-        private Dictionary<string, Bitmap> listaFormulas = new Dictionary<string, Bitmap>();
-
-        public double Distancia(double v, double t)
+        Funciones funciones = new Funciones();
+        BD bd = new BD();
+        private Dictionary<string, string> ecuacion = new Dictionary<string, string>();
+        public void CargarCategorias(ComboBox cb)
         {
-            return v * t;
+            funciones.LlenarComboBox(cb, "listar_categoria_formulas");
         }
 
-        public double Velocidad(double x, double t)
+        public void ActualizarListaEcuaciones(string categoria)
         {
-            return x / t;
+            ecuacion.Clear();
+            using (SqlConnection conexion = bd.CrearConexion())
+            {
+                try
+                {
+                    conexion.Open();
+
+                    SqlCommand comando = new SqlCommand("ecuaciones", conexion);
+                    comando.CommandType = CommandType.StoredProcedure;
+
+                    comando.Parameters.AddWithValue("@categoria_ecuacion", categoria);
+
+                    SqlDataReader reader = comando.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ecuacion.Add(reader["clave"].ToString(), reader["valor"].ToString());
+                    }
+                    reader.Close();
+
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
-        public double Tiempo(double x, double v)
+        public void CargarEcuaciones(ComboBox cb)
         {
-            return x / v;
-        }
-
-        public double DistanciaFinal(double Xo, double v, double t)
-        {
-            return Xo + (v * t);
-        }
-
-        public void CargarFormulas(ComboBox cb)
-        {
-            listaFormulas.Add("Distancia", Properties.Resources.distancia);
-            listaFormulas.Add("Tiempo", Properties.Resources.tiempo);
-            listaFormulas.Add("Velocidad", Properties.Resources.velocidad);
-            //listaFormulas.Add("Distancia Final", Properties.Resources.distancia_final);
             cb.Items.Clear();
-            cb.Items.AddRange(listaFormulas.Keys.ToArray());
+            cb.Items.Add("Seleccionar");
+            try
+            {
+                if (ecuacion.Count > 0)
+                {
+                    foreach (var item in ecuacion)
+                    {
+                        cb.Items.Add(item.Key);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
-        public Bitmap ImagenFormula(string nombre)
+        public string ImagenFormula(string nombre)
         {
-            return listaFormulas[nombre];
+            return ecuacion[nombre];
         }
     }
+
+        //public double Distancia(double v, double t)
+        //{
+        //    return v * t;
+        //}
+
+        //public double Velocidad(double x, double t)
+        //{
+        //    return x / t;
+        //}
+
+        //public double Tiempo(double x, double v)
+        //{
+        //    return x / v;
+        //}
+
+        //public double DistanciaFinal(double Xo, double v, double t)
+        //{
+        //    return Xo + (v * t);
+        //
 }

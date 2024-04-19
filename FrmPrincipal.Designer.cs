@@ -44,16 +44,18 @@
             this.cbOrigen = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cbTipoMedida = new System.Windows.Forms.ComboBox();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tpFormulas = new System.Windows.Forms.TabPage();
             this.pbEcuacion = new System.Windows.Forms.PictureBox();
-            this.cbEcuaciones = new System.Windows.Forms.ComboBox();
+            this.cbEcuacion = new System.Windows.Forms.ComboBox();
             this.lblEcuacion = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.cbCategoriaEcuacion = new System.Windows.Forms.ComboBox();
+            this.lblCategoriaFormula = new System.Windows.Forms.Label();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpCM.SuspendLayout();
-            this.tabPage4.SuspendLayout();
+            this.tpFormulas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEcuacion)).BeginInit();
             this.SuspendLayout();
             // 
@@ -88,7 +90,7 @@
             // tcPrincipal
             // 
             this.tcPrincipal.Controls.Add(this.tpCM);
-            this.tcPrincipal.Controls.Add(this.tabPage4);
+            this.tcPrincipal.Controls.Add(this.tpFormulas);
             this.tcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tcPrincipal.Location = new System.Drawing.Point(0, 30);
             this.tcPrincipal.Margin = new System.Windows.Forms.Padding(4);
@@ -96,6 +98,7 @@
             this.tcPrincipal.SelectedIndex = 0;
             this.tcPrincipal.Size = new System.Drawing.Size(982, 723);
             this.tcPrincipal.TabIndex = 1;
+            this.tcPrincipal.SelectedIndexChanged += new System.EventHandler(this.tcPrincipal_SelectedIndexChanged);
             // 
             // tpCM
             // 
@@ -217,40 +220,44 @@
             this.cbTipoMedida.TabIndex = 0;
             this.cbTipoMedida.SelectedIndexChanged += new System.EventHandler(this.cbTipoMedida_SelectedIndexChanged);
             // 
-            // tabPage4
+            // tpFormulas
             // 
-            this.tabPage4.Controls.Add(this.pbEcuacion);
-            this.tabPage4.Controls.Add(this.cbEcuaciones);
-            this.tabPage4.Controls.Add(this.lblEcuacion);
-            this.tabPage4.Location = new System.Drawing.Point(4, 30);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(974, 689);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "MRU";
-            this.tabPage4.UseVisualStyleBackColor = true;
+            this.tpFormulas.Controls.Add(this.cbCategoriaEcuacion);
+            this.tpFormulas.Controls.Add(this.lblCategoriaFormula);
+            this.tpFormulas.Controls.Add(this.pbEcuacion);
+            this.tpFormulas.Controls.Add(this.cbEcuacion);
+            this.tpFormulas.Controls.Add(this.lblEcuacion);
+            this.tpFormulas.Location = new System.Drawing.Point(4, 30);
+            this.tpFormulas.Name = "tpFormulas";
+            this.tpFormulas.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFormulas.Size = new System.Drawing.Size(974, 689);
+            this.tpFormulas.TabIndex = 1;
+            this.tpFormulas.Text = "Fórmulas";
+            this.tpFormulas.UseVisualStyleBackColor = true;
             // 
             // pbEcuacion
             // 
-            this.pbEcuacion.Location = new System.Drawing.Point(7, 108);
+            this.pbEcuacion.Location = new System.Drawing.Point(16, 196);
             this.pbEcuacion.Name = "pbEcuacion";
-            this.pbEcuacion.Size = new System.Drawing.Size(860, 157);
+            this.pbEcuacion.Size = new System.Drawing.Size(950, 157);
             this.pbEcuacion.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pbEcuacion.TabIndex = 5;
             this.pbEcuacion.TabStop = false;
             // 
-            // cbEcuaciones
+            // cbEcuacion
             // 
-            this.cbEcuaciones.FormattingEnabled = true;
-            this.cbEcuaciones.Location = new System.Drawing.Point(356, 53);
-            this.cbEcuaciones.Name = "cbEcuaciones";
-            this.cbEcuaciones.Size = new System.Drawing.Size(348, 29);
-            this.cbEcuaciones.TabIndex = 4;
+            this.cbEcuacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbEcuacion.FormattingEnabled = true;
+            this.cbEcuacion.Location = new System.Drawing.Point(365, 141);
+            this.cbEcuacion.Name = "cbEcuacion";
+            this.cbEcuacion.Size = new System.Drawing.Size(348, 29);
+            this.cbEcuacion.TabIndex = 4;
+            this.cbEcuacion.SelectedIndexChanged += new System.EventHandler(this.cbEcuacion_SelectedIndexChanged);
             // 
             // lblEcuacion
             // 
             this.lblEcuacion.AutoSize = true;
-            this.lblEcuacion.Location = new System.Drawing.Point(163, 56);
+            this.lblEcuacion.Location = new System.Drawing.Point(172, 144);
             this.lblEcuacion.Name = "lblEcuacion";
             this.lblEcuacion.Size = new System.Drawing.Size(191, 22);
             this.lblEcuacion.TabIndex = 3;
@@ -274,6 +281,25 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // cbCategoriaEcuacion
+            // 
+            this.cbCategoriaEcuacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCategoriaEcuacion.FormattingEnabled = true;
+            this.cbCategoriaEcuacion.Location = new System.Drawing.Point(365, 90);
+            this.cbCategoriaEcuacion.Name = "cbCategoriaEcuacion";
+            this.cbCategoriaEcuacion.Size = new System.Drawing.Size(348, 29);
+            this.cbCategoriaEcuacion.TabIndex = 7;
+            this.cbCategoriaEcuacion.SelectedIndexChanged += new System.EventHandler(this.cbCategoriaFormulas_SelectedIndexChanged);
+            // 
+            // lblCategoriaFormula
+            // 
+            this.lblCategoriaFormula.AutoSize = true;
+            this.lblCategoriaFormula.Location = new System.Drawing.Point(260, 93);
+            this.lblCategoriaFormula.Name = "lblCategoriaFormula";
+            this.lblCategoriaFormula.Size = new System.Drawing.Size(99, 22);
+            this.lblCategoriaFormula.TabIndex = 6;
+            this.lblCategoriaFormula.Text = "Categoría:";
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -294,8 +320,8 @@
             this.tcPrincipal.ResumeLayout(false);
             this.tpCM.ResumeLayout(false);
             this.tpCM.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
+            this.tpFormulas.ResumeLayout(false);
+            this.tpFormulas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbEcuacion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -311,9 +337,9 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.TabPage tpCM;
-        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tpFormulas;
         private System.Windows.Forms.PictureBox pbEcuacion;
-        private System.Windows.Forms.ComboBox cbEcuaciones;
+        private System.Windows.Forms.ComboBox cbEcuacion;
         private System.Windows.Forms.Label lblEcuacion;
         private System.Windows.Forms.ComboBox cbTipoMedida;
         private System.Windows.Forms.Label label1;
@@ -325,6 +351,8 @@
         private System.Windows.Forms.TextBox txtCantidad;
         private System.Windows.Forms.Label lblCantidad;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.ComboBox cbCategoriaEcuacion;
+        private System.Windows.Forms.Label lblCategoriaFormula;
     }
 }
 

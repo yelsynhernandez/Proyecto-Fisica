@@ -7,36 +7,12 @@ namespace ProyectoFisica.Clases
 {
     internal class ConvertidorMedidas
     {
-        private SqlConnection CrearConexion()
+        BD bd = new BD();
+        Funciones funciones = new Funciones();
+        
+        public void CargarCategorias(ComboBox cb)
         {
-            return new SqlConnection($"Data Source=localhost;Initial Catalog=proyecto_fisica;Integrated Security=True;");
-        }
-        public void LlenarComboBox(ComboBox comboBox)
-        {
-            comboBox.Items.Clear();
-            comboBox.Items.Add("Seleccionar");
-            comboBox.SelectedIndex = 0;
-
-            using (SqlConnection conexion = CrearConexion())
-            {
-                try
-                {
-                    conexion.Open();
-                    SqlCommand comando = new SqlCommand("listado_categorias", conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataReader reader = comando.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        comboBox.Items.Add(reader["nombre"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            funciones.LlenarComboBox(cb, "listado_categorias");
         }
 
         public void CargarMedidas(ComboBox cb1,ComboBox cb2, string tipo_medida)
@@ -49,7 +25,7 @@ namespace ProyectoFisica.Clases
             cb2.Items.Add("Seleccionar");
             cb2.SelectedIndex = 0;
 
-            using (SqlConnection conexion = CrearConexion())
+            using (SqlConnection conexion = bd.CrearConexion())
             {
                 try
                 {
@@ -78,7 +54,7 @@ namespace ProyectoFisica.Clases
             dataGridView.Rows.Clear();
             dataGridView.Columns.Clear();
 
-            using (SqlConnection conexion = CrearConexion())
+            using (SqlConnection conexion = bd.CrearConexion())
             {
                 try
                 {
@@ -100,7 +76,7 @@ namespace ProyectoFisica.Clases
         {
             float resultado = 0;
 
-            using (SqlConnection conexion = CrearConexion())
+            using (SqlConnection conexion = bd.CrearConexion())
             {
                 try
                 {

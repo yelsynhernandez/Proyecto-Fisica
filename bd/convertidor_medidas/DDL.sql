@@ -9,6 +9,8 @@ end
 go
 use proyecto_fisica;
 go
+
+--======================================Convertidor de medidas
 -- Eliminación de tablas
 if object_id('equivalencia_medida') is not null drop table equivalencia_medida
 if object_id('medida') is not null drop table medida
@@ -18,10 +20,11 @@ go
 if object_id('listado_categorias','p')  is not null drop procedure listado_categorias
 if object_id('listado_medidas','p')  is not null drop procedure listado_medidas
 if object_id('convertir','p')  is not null drop procedure convertir
+-- Eliminación de vistas
 if object_id('tabla_equivalencias','V') is not null drop view tabla_equivalencias
 GO
 create table tipo_medida(
-	id int identity(1,1) not null,
+	id int not null,
 	nombre varchar(50) not null,
 	constraint pk_tipo_medida
 	    primary key(id)
@@ -50,8 +53,9 @@ go
 create procedure listado_categorias
 as
 begin
-	select id, nombre
+	select nombre as  valor
 	from tipo_medida
+	order by nombre
 end
 GO
 --SPs
@@ -60,10 +64,11 @@ create procedure listado_medidas(
 )
 as
 begin
-	select m.id, m.nombre
+	select m.nombre
 	from medida m
 	    inner join tipo_medida tm on (m.id_tipo_medida = tm.id)
 	where tm.nombre = @tipo_medida
+	order by m.nombre
 end
 go
 create procedure convertir(
@@ -105,3 +110,4 @@ as
 	    inner join medida m1 on (em.id_medida_origen = m1.id)
 		inner join medida m2 on (em.id_medida_destino = m2.id)
 		inner join tipo_medida tm on (m1.id_tipo_medida = tm.id)
+go

@@ -1,6 +1,5 @@
 ﻿using System;
-using System.Drawing;
-using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 using ProyectoFisica.Clases;
 
@@ -8,9 +7,8 @@ namespace ProyectoFisica
 {
     public partial class FrmPrincipal : Form
     {
-        private Dictionary<string, Bitmap> formulas = new Dictionary<string, Bitmap>();
         MRU mru = new MRU();
-        ConvertidorMedidas  cm = new ConvertidorMedidas();
+        private int ultimoIndiceTipoMedida = 0;
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -23,22 +21,19 @@ namespace ProyectoFisica
 
         private void FrmPrincipal_Load(object sender, EventArgs e)
         {
-            CargarFormulasMRU();
-            CargarTipoMedida();
+            CargarCategoriaMedida();
             txtCantidad.Focus();
         }
 
         //----------------------------------------------- Convertidor
-        private void cbEcuaciones_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string ecuacion = cbEcuaciones.SelectedItem.ToString();
-            pbEcuacion.Image = mru.ImagenFormula(ecuacion);
-        }
+        ConvertidorMedidas cm = new ConvertidorMedidas();
 
         private void cbTipoMedida_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbTipoMedida.SelectedIndex != 0)
+            if(cbTipoMedida.SelectedIndex != 0 &&
+                ultimoIndiceTipoMedida != cbTipoMedida.SelectedIndex)
             {
+                ultimoIndiceTipoMedida = cbTipoMedida.SelectedIndex;
                 cm.CargarMedidas(cbOrigen, cbDestino, cbTipoMedida.Text);
                 LimpiarControles();
             }            
@@ -87,9 +82,9 @@ namespace ProyectoFisica
         {
             LimpiarControles();
         }
-        private void CargarTipoMedida()
+        private void CargarCategoriaMedida()
         {
-            cm.LlenarComboBox(cbTipoMedida);
+            cm.CargarCategorias(cbTipoMedida);
         }
 
         private void LimpiarControles()
@@ -111,11 +106,56 @@ namespace ProyectoFisica
             txtResultado.Text = String.Empty;
         }
 
-
         //---------------------------------------------------------------- MRU
         private void CargarFormulasMRU()
         {
-            mru.CargarFormulas(cbEcuaciones);
+            mru.CargarCategorias(cbCategoriaEcuacion);
+        }
+
+        private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = tcPrincipal.SelectedIndex;
+            switch (indice)
+            {
+                case 1:
+                    CargarFormulasMRU();
+                    break;
+            }
+        }
+
+        private void cbEcuacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (cbEcuacion.SelectedIndex != 0)
+                {
+                    string imagen = cbEcuacion.SelectedItem.ToString();
+
+                    if (File.Exists(imagen))
+                    {
+                        pbEcuacion.ImageLocation = mru.ImagenFormula(imagen);
+                    }
+                    else
+                    {
+                        pbEcuacion.ImageLocation = "C:/img/no_encontrado.png";
+                    }
+
+                    
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cbCategoriaFormulas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbCategoriaEcuacion.SelectedIndex != 0)
+            {
+                mru.ActualizarListaEcuaciones(cbCategoriaEcuacion.Text);
+                mru.CargarEcuaciones(cbEcuacion);
+            }
         }
     }
 }
