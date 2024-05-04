@@ -26,6 +26,7 @@ GO
 create table tipo_medida(
 	id int not null,
 	nombre varchar(50) not null,
+	imagen varchar(200) not null,
 	constraint pk_tipo_medida
 	    primary key(id)
 );
@@ -53,7 +54,9 @@ go
 create procedure listado_categorias
 as
 begin
-	select nombre as  valor
+	select
+	      nombre as clave,
+		  imagen as valor
 	from tipo_medida
 	order by nombre
 end

@@ -7,11 +7,12 @@ using System.Windows.Forms;
 
 namespace ProyectoFisica.Clases
 {
-    internal class MRU
+    internal class Formulas
     {
         Funciones funciones = new Funciones();
         BD bd = new BD();
-        private Dictionary<string, string> ecuacion = new Dictionary<string, string>();
+        //private Dictionary<string, string> ecuacion = new Dictionary<string, string>();ç
+        List<Tuple<string, string, string>> ecuacion = new List<Tuple<string, string, string>>();
         public void CargarCategorias(ComboBox cb)
         {
             funciones.LlenarComboBox(cb, "listar_categoria_ecuacion");
@@ -34,7 +35,7 @@ namespace ProyectoFisica.Clases
                     SqlDataReader reader = comando.ExecuteReader();
                     while (reader.Read())
                     {
-                        ecuacion.Add(reader["clave"].ToString(), reader["valor"].ToString());
+                        ecuacion.Add(Tuple.Create(reader["formula"].ToString(), reader["imagen"].ToString(), reader["variables"].ToString()));
                     }
                     reader.Close();
 
@@ -58,7 +59,7 @@ namespace ProyectoFisica.Clases
                 {
                     foreach (var item in ecuacion)
                     {
-                        cb.Items.Add(item.Key);
+                        cb.Items.Add(item.Item1);
                     }
                 }
             }
@@ -68,9 +69,24 @@ namespace ProyectoFisica.Clases
             }
         }
 
-        public string ImagenFormula(string nombre)
+        //public string ImagenFormula(string nombre)
+        //{
+        //    return ecuacion[nombre];
+        //}
+        public string BuscarImagen(string _ecuacion)
         {
-            return ecuacion[nombre];
+            // Buscar la coincidencia en el ítem 2 de cada tupla
+            var tuplaEncontrada = ecuacion.FirstOrDefault(t => t.Item1 == _ecuacion);
+
+            // Si se encuentra la coincidencia, devolver el ítem 3 de la tupla
+            if (tuplaEncontrada != null)
+            {
+                return tuplaEncontrada.Item2;
+            }
+            else
+            {
+                return null; // Devolver null si no se encuentra la imagen
+            }
         }
     }
 

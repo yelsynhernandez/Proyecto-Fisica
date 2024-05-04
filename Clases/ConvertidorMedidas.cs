@@ -2,17 +2,67 @@
 using System.Data.SqlClient;
 using System.Data;
 using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace ProyectoFisica.Clases
 {
     internal class ConvertidorMedidas
     {
         BD bd = new BD();
-        Funciones funciones = new Funciones();
-        
-        public void CargarCategorias(ComboBox cb)
+        private Dictionary<string, string> unidadMedida = new Dictionary<string, string>();
+        public void CargarUnidadesDeMedida(ComboBox cb)
         {
-            funciones.LlenarComboBox(cb, "listado_categorias");
+            ListarUnidadesDeMedida();
+            cb.Items.Clear();
+            cb.Items.Add("Seleccionar");
+            cb.SelectedIndex = 0;
+            try
+            {
+                if (unidadMedida.Count > 0)
+                {
+                    foreach (var item in unidadMedida)
+                    {
+                        cb.Items.Add(item.Key);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void ListarUnidadesDeMedida()
+        {
+            unidadMedida.Clear();
+            using (SqlConnection conexion = bd.CrearConexion())
+            {
+                try
+                {
+                    conexion.Open();
+
+                    SqlCommand comando = new SqlCommand("listado_categorias", conexion);
+                    comando.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataReader reader = comando.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        unidadMedida.Add(reader["clave"].ToString(), reader["valor"].ToString());
+                    }
+                    reader.Close();
+
+                    conexion.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        public string ImagenMedida(string nombre)
+        {
+            return unidadMedida[nombre];
         }
 
         public void CargarMedidas(ComboBox cb1,ComboBox cb2, string tipo_medida)

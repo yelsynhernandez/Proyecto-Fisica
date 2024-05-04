@@ -3,12 +3,12 @@ go
 begin try
 begin transaction
 	--================================================================== Típos de unidades de medida
-	insert into tipo_medida (id, nombre) values (1, 'Masa');
-	insert into tipo_medida (id, nombre) values (2, 'Longitud');
-	insert into tipo_medida (id, nombre) values (3, 'Tiempo');
-	insert into tipo_medida (id, nombre) values (4, 'Volumen');
-	insert into tipo_medida (id, nombre) values (5, 'Temperatura');
-	insert into tipo_medida (id, nombre) values (6, 'Velocidad');
+	insert into tipo_medida (id, nombre, imagen) values (1, 'Masa', 'C:/proyecto/img/tipo_medida/masa.png');
+	insert into tipo_medida (id, nombre, imagen) values (2, 'Longitud', 'C:/proyecto/img/tipo_medida/longitud.png');
+	insert into tipo_medida (id, nombre, imagen) values (3, 'Tiempo', 'C:/proyecto/img/tipo_medida/tiempo.png');
+	insert into tipo_medida (id, nombre, imagen) values (4, 'Volumen', 'C:/proyecto/img/tipo_medida/volumen.png');
+	insert into tipo_medida (id, nombre, imagen) values (5, 'Temperatura', 'C:/proyecto/img/tipo_medida/temperatura.png');
+	insert into tipo_medida (id, nombre, imagen) values (6, 'Velocidad', 'C:/proyecto/img/tipo_medida/velocidad.png');
 
 	--================================================================== Medidas
 	-- Unidades de medida para masa

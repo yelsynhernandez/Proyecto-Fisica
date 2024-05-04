@@ -7,6 +7,7 @@ if object_id('categoria_ecuacion') is not null drop table categoria_ecuacion
 
 -- eliminación de procedimientos almacenados
 if object_id('listar_categoria_ecuacion','p') is not null drop procedure listar_categoria_ecuacion
+if object_id('ecuaciones','p') is not null drop procedure ecuaciones
 go
 create table categoria_ecuacion(
    id int not null,
