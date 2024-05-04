@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPrincipal));
             this.msPrincipal = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -50,8 +51,7 @@
             this.cbTipoMedida = new System.Windows.Forms.ComboBox();
             this.tpFormulas = new System.Windows.Forms.TabPage();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dgvVariables = new System.Windows.Forms.DataGridView();
             this.cbCategoriaEcuacion = new System.Windows.Forms.ComboBox();
             this.lblCategoriaFormula = new System.Windows.Forms.Label();
             this.cbEcuacion = new System.Windows.Forms.ComboBox();
@@ -78,7 +78,7 @@
             this.tpCM.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbConvertidor)).BeginInit();
             this.tpFormulas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEcuacion)).BeginInit();
             this.tpComponentes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -288,8 +288,7 @@
             // 
             this.tpFormulas.BackColor = System.Drawing.Color.Ivory;
             this.tpFormulas.Controls.Add(this.label3);
-            this.tpFormulas.Controls.Add(this.dataGridView1);
-            this.tpFormulas.Controls.Add(this.label2);
+            this.tpFormulas.Controls.Add(this.dgvVariables);
             this.tpFormulas.Controls.Add(this.cbCategoriaEcuacion);
             this.tpFormulas.Controls.Add(this.lblCategoriaFormula);
             this.tpFormulas.Controls.Add(this.cbEcuacion);
@@ -312,22 +311,15 @@
             this.label3.TabIndex = 11;
             this.label3.Text = "Formulario";
             // 
-            // dataGridView1
+            // dgvVariables
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(365, 316);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(300, 219);
-            this.dataGridView1.TabIndex = 10;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(289, 316);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "label2";
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvVariables.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvVariables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvVariables.Location = new System.Drawing.Point(365, 316);
+            this.dgvVariables.Name = "dgvVariables";
+            this.dgvVariables.Size = new System.Drawing.Size(300, 219);
+            this.dgvVariables.TabIndex = 10;
             // 
             // cbCategoriaEcuacion
             // 
@@ -564,7 +556,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbConvertidor)).EndInit();
             this.tpFormulas.ResumeLayout(false);
             this.tpFormulas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEcuacion)).EndInit();
             this.tpComponentes.ResumeLayout(false);
             this.tpComponentes.PerformLayout();
@@ -599,12 +591,11 @@
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.ComboBox cbCategoriaEcuacion;
         private System.Windows.Forms.Label lblCategoriaFormula;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TabPage tpComponentes;
         private System.Windows.Forms.TextBox txtAngulo;
         private System.Windows.Forms.TextBox txtFuerza;
         private System.Windows.Forms.PictureBox pbConvertidor;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvVariables;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label lblComponentes;
         private System.Windows.Forms.TextBox txtComponenteX;

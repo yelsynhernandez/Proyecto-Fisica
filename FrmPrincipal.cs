@@ -164,6 +164,7 @@ namespace ProyectoFisica
                     {
                         pbEcuacion.Image = Resources.no_encontrado;
                     }
+                    frm.CargarVariables(ecuacion, dgvVariables);
                 }
             }
             catch(Exception ex)
