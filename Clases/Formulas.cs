@@ -34,21 +34,13 @@ namespace ProyectoFisica.Clases
                     SqlDataReader reader = comando.ExecuteReader();
                     while (reader.Read())
                     {
-                        /*
-                         * ecuacion.Add(Tuple.Create(
-                                                  reader.GetString(reader.GetOrdinal("formula")
-                                                  (string)reader["formula"],
-                                                  (string)reader["imagen"],
-                                                  (string)reader["variables"].ToString(),
-                                                  reader.GetInt32(reader.GetOrdinal("id_categoria"))
-                                                  )
-                         */
                         ecuacion.Add(Tuple.Create(
                                                   reader.GetString(reader.GetOrdinal("formula")),
                                                   reader.GetString(reader.GetOrdinal("imagen")),
                                                   reader.GetString(reader.GetOrdinal("variables")),
                                                   reader.GetInt32(reader.GetOrdinal("id_categoria"))
                                                   )
+                         
                                       );
                     }
                     reader.Close();
@@ -85,7 +77,7 @@ namespace ProyectoFisica.Clases
 
         public string BuscarImagen(string _ecuacion)
         {
-            // Buscar la coincidencia en el ítem 2 de cada tupla
+            // Buscar la coincidencia en la lista
             var tuplaEncontrada = ecuacion.FirstOrDefault(t => t.Item1 == _ecuacion);
 
             // Si se encuentra la coincidencia, devolver la ruta de la imagen
