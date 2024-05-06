@@ -14,6 +14,8 @@ namespace ProyectoFisica
             InitializeComponent();
         }
 
+        /****************************** CONTROLES GENERALES ******************************/
+
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -25,7 +27,21 @@ namespace ProyectoFisica
             txtCantidad.Focus();
         }
 
-        //----------------------------------------------- Convertidor
+        private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int indice = tcPrincipal.SelectedIndex;
+            switch (indice)
+            {
+                case 1:
+                    CargarFormulas();
+                    break;
+                case 2:
+                    txtFuerza.Focus();
+                    break;
+            }
+        }
+
+        //****************************** CONVERTIDOR ******************************/
         ConvertidorMedidas cm = new ConvertidorMedidas();
         private int ultimoIndiceTipoMedida = 0;
         private void cbTipoMedida_SelectedIndexChanged(object sender, EventArgs e)
@@ -122,26 +138,11 @@ namespace ProyectoFisica
             txtResultado.Text = String.Empty;
         }
 
-        //---------------------------------------------------------------- frm
-        private void CargarFormulasfrm()
+        /****************************** FORMULARIO ******************************/
+        private void CargarFormulas()
         {
             frm.CargarCategorias(cbCategoriaEcuacion);
-            cbEcuacion.Enabled = false;
             pbEcuacion.Image = Resources.espera;
-        }
-
-        private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int indice = tcPrincipal.SelectedIndex;
-            switch (indice)
-            {
-                case 1:
-                    CargarFormulasfrm();
-                    break;
-                case 2:
-                    txtFuerza.Focus();
-                    break;
-            }
         }
 
         int ultimoIndiceEcuacion = 0;
@@ -173,18 +174,40 @@ namespace ProyectoFisica
             }
         }
 
-        private void cbCategoriaFormulas_SelectedIndexChanged(object sender, EventArgs e)
+        private void ActualizarEcuaciones()
+        {
+            frm.ActualizarListaEcuaciones(cbCategoriaEcuacion.Text);
+            frm.CargarEcuaciones(cbEcuacion);
+        }
+
+        private void cbCategoriaEcuacion_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(cbCategoriaEcuacion.SelectedIndex != 0)
             {
                 pbEcuacion.Image = Resources.espera;
-                frm.ActualizarListaEcuaciones(cbCategoriaEcuacion.Text);
-                frm.CargarEcuaciones(cbEcuacion);
-                cbEcuacion.Enabled = true;
+                ActualizarEcuaciones();
+            }
+            {
+                if(cbEcuacion.Items.Count == 0)
+                {
+                    cbEcuacion.Items.Clear();
+                    cbEcuacion.Items.Add("Seleccionar");
+                    cbEcuacion.SelectedIndex = 0;
+                }
             }
         }
 
-        //***************************************** Componentes en X y Y
+        private void btnActualizarEcuaciones_Click(object sender, EventArgs e)
+        {
+            ActualizarEcuaciones();
+        }
+
+        private void btnCalcularEcuacion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        /****************************** COMPONENTES EN X/Y ******************************/
         public static bool EsDecimal(string texto)
         {
             decimal valor;
@@ -230,6 +253,8 @@ namespace ProyectoFisica
             txtFuerza.Focus();
         }
 
+
+        /****************************** CREDITOS ******************************/
         private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string mensaje = "Autor: Yelsyn Hernández\n";

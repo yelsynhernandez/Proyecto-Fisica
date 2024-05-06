@@ -11,8 +11,7 @@ namespace ProyectoFisica.Clases
     {
         Funciones funciones = new Funciones();
         BD bd = new BD();
-        //private Dictionary<string, string> ecuacion = new Dictionary<string, string>();ç
-        List<Tuple<string, string, string>> ecuacion = new List<Tuple<string, string, string>>();
+        List<Tuple<string, string, string, int>> ecuacion = new List<Tuple<string, string, string, int>>();
         public void CargarCategorias(ComboBox cb)
         {
             funciones.LlenarComboBox(cb, "listar_categoria_ecuacion");
@@ -35,7 +34,22 @@ namespace ProyectoFisica.Clases
                     SqlDataReader reader = comando.ExecuteReader();
                     while (reader.Read())
                     {
-                        ecuacion.Add(Tuple.Create(reader["formula"].ToString(), reader["imagen"].ToString(), reader["variables"].ToString()));
+                        /*
+                         * ecuacion.Add(Tuple.Create(
+                                                  reader.GetString(reader.GetOrdinal("formula")
+                                                  (string)reader["formula"],
+                                                  (string)reader["imagen"],
+                                                  (string)reader["variables"].ToString(),
+                                                  reader.GetInt32(reader.GetOrdinal("id_categoria"))
+                                                  )
+                         */
+                        ecuacion.Add(Tuple.Create(
+                                                  reader.GetString(reader.GetOrdinal("formula")),
+                                                  reader.GetString(reader.GetOrdinal("imagen")),
+                                                  reader.GetString(reader.GetOrdinal("variables")),
+                                                  reader.GetInt32(reader.GetOrdinal("id_categoria"))
+                                                  )
+                                      );
                     }
                     reader.Close();
 
@@ -52,7 +66,6 @@ namespace ProyectoFisica.Clases
         {
             cb.Items.Clear();
             cb.Items.Add("Seleccionar");
-            cb.SelectedIndex = 0;
             try
             {
                 if (ecuacion.Count > 0)
@@ -67,6 +80,7 @@ namespace ProyectoFisica.Clases
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            cb.SelectedIndex = 0;
         }
 
         public string BuscarImagen(string _ecuacion)
