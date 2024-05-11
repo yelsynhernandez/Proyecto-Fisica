@@ -50,6 +50,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTipoMedida = new System.Windows.Forms.ComboBox();
             this.tpFormulas = new System.Windows.Forms.TabPage();
+            this.lblResultadoEcuacion = new System.Windows.Forms.Label();
+            this.txtResultadoEcuacion = new System.Windows.Forms.TextBox();
+            this.btnCalcularEcuacion = new System.Windows.Forms.Button();
             this.btnActualizarEcuaciones = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.dgvVariables = new System.Windows.Forms.DataGridView();
@@ -74,9 +77,7 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.btnCalcularEcuacion = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.lblResultadoEcuacion = new System.Windows.Forms.Label();
+            this.lblConsideracionesFormulario = new System.Windows.Forms.Label();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpCM.SuspendLayout();
@@ -291,8 +292,9 @@
             // tpFormulas
             // 
             this.tpFormulas.BackColor = System.Drawing.Color.Ivory;
+            this.tpFormulas.Controls.Add(this.lblConsideracionesFormulario);
             this.tpFormulas.Controls.Add(this.lblResultadoEcuacion);
-            this.tpFormulas.Controls.Add(this.textBox1);
+            this.tpFormulas.Controls.Add(this.txtResultadoEcuacion);
             this.tpFormulas.Controls.Add(this.btnCalcularEcuacion);
             this.tpFormulas.Controls.Add(this.btnActualizarEcuaciones);
             this.tpFormulas.Controls.Add(this.label3);
@@ -308,6 +310,33 @@
             this.tpFormulas.Size = new System.Drawing.Size(974, 543);
             this.tpFormulas.TabIndex = 1;
             this.tpFormulas.Text = "Fórmulas";
+            // 
+            // lblResultadoEcuacion
+            // 
+            this.lblResultadoEcuacion.AutoSize = true;
+            this.lblResultadoEcuacion.Location = new System.Drawing.Point(644, 428);
+            this.lblResultadoEcuacion.Name = "lblResultadoEcuacion";
+            this.lblResultadoEcuacion.Size = new System.Drawing.Size(78, 17);
+            this.lblResultadoEcuacion.TabIndex = 15;
+            this.lblResultadoEcuacion.Text = "Resultado:";
+            // 
+            // txtResultadoEcuacion
+            // 
+            this.txtResultadoEcuacion.Location = new System.Drawing.Point(728, 425);
+            this.txtResultadoEcuacion.Name = "txtResultadoEcuacion";
+            this.txtResultadoEcuacion.ReadOnly = true;
+            this.txtResultadoEcuacion.Size = new System.Drawing.Size(185, 24);
+            this.txtResultadoEcuacion.TabIndex = 14;
+            // 
+            // btnCalcularEcuacion
+            // 
+            this.btnCalcularEcuacion.Location = new System.Drawing.Point(647, 400);
+            this.btnCalcularEcuacion.Name = "btnCalcularEcuacion";
+            this.btnCalcularEcuacion.Size = new System.Drawing.Size(75, 25);
+            this.btnCalcularEcuacion.TabIndex = 13;
+            this.btnCalcularEcuacion.Text = "Calcular";
+            this.btnCalcularEcuacion.UseVisualStyleBackColor = true;
+            this.btnCalcularEcuacion.Click += new System.EventHandler(this.btnCalcularEcuacion_Click);
             // 
             // btnActualizarEcuaciones
             // 
@@ -334,9 +363,9 @@
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Arial Narrow", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvVariables.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvVariables.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVariables.Location = new System.Drawing.Point(262, 310);
+            this.dgvVariables.Location = new System.Drawing.Point(311, 310);
             this.dgvVariables.Name = "dgvVariables";
-            this.dgvVariables.Size = new System.Drawing.Size(300, 227);
+            this.dgvVariables.Size = new System.Drawing.Size(329, 227);
             this.dgvVariables.TabIndex = 10;
             // 
             // cbCategoriaEcuacion
@@ -549,31 +578,14 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // btnCalcularEcuacion
+            // lblConsideracionesFormulario
             // 
-            this.btnCalcularEcuacion.Location = new System.Drawing.Point(701, 357);
-            this.btnCalcularEcuacion.Name = "btnCalcularEcuacion";
-            this.btnCalcularEcuacion.Size = new System.Drawing.Size(75, 25);
-            this.btnCalcularEcuacion.TabIndex = 13;
-            this.btnCalcularEcuacion.Text = "Calcular";
-            this.btnCalcularEcuacion.UseVisualStyleBackColor = true;
-            this.btnCalcularEcuacion.Click += new System.EventHandler(this.btnCalcularEcuacion_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(681, 409);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(185, 24);
-            this.textBox1.TabIndex = 14;
-            // 
-            // lblResultadoEcuacion
-            // 
-            this.lblResultadoEcuacion.AutoSize = true;
-            this.lblResultadoEcuacion.Location = new System.Drawing.Point(597, 412);
-            this.lblResultadoEcuacion.Name = "lblResultadoEcuacion";
-            this.lblResultadoEcuacion.Size = new System.Drawing.Size(78, 17);
-            this.lblResultadoEcuacion.TabIndex = 15;
-            this.lblResultadoEcuacion.Text = "Resultado:";
+            this.lblConsideracionesFormulario.AutoSize = true;
+            this.lblConsideracionesFormulario.Location = new System.Drawing.Point(8, 333);
+            this.lblConsideracionesFormulario.Name = "lblConsideracionesFormulario";
+            this.lblConsideracionesFormulario.Size = new System.Drawing.Size(95, 17);
+            this.lblConsideracionesFormulario.TabIndex = 16;
+            this.lblConsideracionesFormulario.Text = "Instrucciones";
             // 
             // FrmPrincipal
             // 
@@ -658,7 +670,8 @@
         private System.Windows.Forms.Button btnActualizarEcuaciones;
         private System.Windows.Forms.Button btnCalcularEcuacion;
         private System.Windows.Forms.Label lblResultadoEcuacion;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtResultadoEcuacion;
+        private System.Windows.Forms.Label lblConsideracionesFormulario;
     }
 }
 

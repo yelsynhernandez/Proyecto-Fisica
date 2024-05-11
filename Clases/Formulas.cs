@@ -38,7 +38,7 @@ namespace ProyectoFisica.Clases
                                                   reader.GetString(reader.GetOrdinal("formula")),
                                                   reader.GetString(reader.GetOrdinal("imagen")),
                                                   reader.GetString(reader.GetOrdinal("variables")),
-                                                  reader.GetInt32(reader.GetOrdinal("id_categoria"))
+                                                  reader.GetInt32(reader.GetOrdinal("id_ecuacion"))
                                                   )
                          
                                       );
@@ -77,17 +77,15 @@ namespace ProyectoFisica.Clases
 
         public string BuscarImagen(string _ecuacion)
         {
-            // Buscar la coincidencia en la lista
             var tuplaEncontrada = ecuacion.FirstOrDefault(t => t.Item1 == _ecuacion);
 
-            // Si se encuentra la coincidencia, devolver la ruta de la imagen
             if (tuplaEncontrada != null)
             {
                 return tuplaEncontrada.Item2;
             }
             else
             {
-                return null; // Devolver null si no se encuentra la imagen
+                return null;
             }
         }
 
@@ -98,49 +96,77 @@ namespace ProyectoFisica.Clases
 
             if (tuplaEncontrada != null)
             {
-                // Obtener las variables y contarlas
                 string variables = tuplaEncontrada.Item3;
                 string[] variablesArray = variables.Split(',');
                 int cantidadVariables = variablesArray.Length;
 
-                // Crear columnas en el DataGridView
                 dgv.ColumnCount = 2;
                 dgv.Columns[0].Name = "Variables";
                 dgv.Columns[1].Name = "Valores";
 
-                // Agregar filas al DataGridView
                 dgv.Rows.Clear();
                 dgv.Rows.Add(cantidadVariables);
 
-                // Mostrar las variables en la primera columna del DataGridView
                 for (int i = 0; i < cantidadVariables; i++)
                 {
                     dgv.Rows[i].Cells[0].Value = variablesArray[i].Trim();
                     dgv.Rows[i].Cells[0].ReadOnly = true;
                 }
 
-                // Colocar el foco en la segunda columna, fila 1
                 dgv.CurrentCell = dgv.Rows[0].Cells[1];
                 dgv.BeginEdit(true);
-
-                // Configurar el ancho de la primera columna según el contenido
                 dgv.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-
-                // Configurar el ancho de la segunda columna para ocupar el espacio restante
                 dgv.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-                // Bloquear el cambio de tamaño de las columnas
                 dgv.Columns[0].Resizable = DataGridViewTriState.False;
                 dgv.Columns[1].Resizable = DataGridViewTriState.False;
-
-                // Ocultar la última fila en blanco
                 dgv.AllowUserToAddRows = false;
             }
             else
             {
-                // Limpiar el DataGridView si no se encuentra la ecuación
                 dgv.Rows.Clear();
             }
+        }
+
+        public float ResolverEcuacion(string nombre_ecuacion, string valores)
+        {
+            float resultado = 0;
+
+            using (SqlConnection conexion = bd.CrearConexion())
+            {
+                try
+                {
+                    var tuplaEncontrada = ecuacion.Find(t => t.Item1 == nombre_ecuacion);
+                    int id_ecuacion;
+                    if( tuplaEncontrada != null )
+                    {
+                        id_ecuacion = tuplaEncontrada.Item4;
+                        conexion.Open();
+                        SqlCommand comando = new SqlCommand("resolver_ecuacion", conexion);
+                        comando.CommandType = CommandType.StoredProcedure;
+
+                        comando.Parameters.AddWithValue("@id_ecuacion", id_ecuacion);
+                        comando.Parameters.AddWithValue("@valores", valores);
+                        comando.Parameters.Add("@resultado", SqlDbType.Float);
+                        comando.Parameters["@resultado"].Direction = ParameterDirection.Output;
+
+                        comando.ExecuteNonQuery();
+
+                        resultado = float.Parse(comando.Parameters["@resultado"].Value.ToString());
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo encontrar la ecuación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+
+                   
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al ejecutar el procedimiento almacenado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            return resultado;
         }
     }
 }

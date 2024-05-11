@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
 using ProyectoFisica.Clases;
@@ -25,6 +26,7 @@ namespace ProyectoFisica
         {
             CargarCategoriaMedida();
             txtCantidad.Focus();
+            lblConsideracionesFormulario.Text = "Consideraciones:\n1.La velocidad se asume como m/s\n2.El tiempo se asume como segundos\n3.La distancia se asume en metros";
         }
 
         private void tcPrincipal_SelectedIndexChanged(object sender, EventArgs e)
@@ -184,17 +186,18 @@ namespace ProyectoFisica
         {
             if(cbCategoriaEcuacion.SelectedIndex != 0)
             {
-                pbEcuacion.Image = Resources.espera;
                 ActualizarEcuaciones();
             }
+            else
             {
-                if(cbEcuacion.Items.Count == 0)
+                if(cbEcuacion.Items.Count > 0)
                 {
                     cbEcuacion.Items.Clear();
-                    cbEcuacion.Items.Add("Seleccionar");
-                    cbEcuacion.SelectedIndex = 0;
                 }
+                cbEcuacion.Items.Add("Seleccionar");
+                cbEcuacion.SelectedIndex = 0;
             }
+            pbEcuacion.Image = Resources.espera;
         }
 
         private void btnActualizarEcuaciones_Click(object sender, EventArgs e)
@@ -204,7 +207,30 @@ namespace ProyectoFisica
 
         private void btnCalcularEcuacion_Click(object sender, EventArgs e)
         {
-
+            if(dgvVariables.Rows.Count > 0)
+            {
+                List<float> valores = new List<float>();
+                foreach (DataGridViewRow row in dgvVariables.Rows)
+                {
+                    if (row.Cells[1].Value != null && float.TryParse(row.Cells[1].Value.ToString(), out float valor))
+                    {
+                        valores.Add(valor);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Todos los valores deben ser números flotantes.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                string valoresConcatenados = string.Join(",", valores);
+                float resultado = frm.ResolverEcuacion(cbEcuacion.Text, valoresConcatenados);
+                txtResultadoEcuacion.Text = resultado.ToString();
+                //MessageBox.Show("Estos son los valores: " + valoresConcatenados, "Valores", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No hay variables para enviar", "Valores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         /****************************** COMPONENTES EN X/Y ******************************/
