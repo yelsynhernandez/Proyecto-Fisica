@@ -61,6 +61,36 @@ namespace ProyectoFisica.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kilogramo,Gramo,1000
+        ///Kilogramo,Tonelada,0.001
+        ///Kilogramo,Libra,2.20462
+        ///Kilogramo,Onza,35.274
+        ///Kilogramo,Miligramo,1e+006
+        ///Kilogramo,Arroba,0.015748
+        ///Gramo,Kilogramo,0.001
+        ///Gramo,Tonelada,1e-006
+        ///Gramo,Libra,0.00220462
+        ///Gramo,Onza,0.035274
+        ///Gramo,Miligramo,1000
+        ///Gramo,Arroba,1.5748e-005
+        ///Tonelada,Kilogramo,1000
+        ///Tonelada,Gramo,1e+006
+        ///Tonelada,Libra,2204.62
+        ///Tonelada,Onza,35274
+        ///Tonelada,Miligramo,1e+009
+        ///Tonelada,Arroba,15.748
+        ///Libra,Kilogramo,0.453592
+        ///Libra,Gramo,453.592
+        ///Libra,Tonelada,0.000453592
+        ///Lib [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string equivalencia_medida {
+            get {
+                return ResourceManager.GetString("equivalencia_medida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap espera {
@@ -71,12 +101,78 @@ namespace ProyectoFisica.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Masa,Kilogramo
+        ///Masa,Gramo
+        ///Masa,Tonelada
+        ///Masa,Libra
+        ///Masa,Onza
+        ///Masa,Miligramo
+        ///Masa,Arroba
+        ///Longitud,Metro
+        ///Longitud,Centímetro
+        ///Longitud,Milímetro
+        ///Longitud,Kilómetro
+        ///Longitud,Milla
+        ///Longitud,Yarda
+        ///Longitud,Pie
+        ///Longitud,Pulgada
+        ///Tiempo,Segundo
+        ///Tiempo,Minuto
+        ///Tiempo,Hora
+        ///Tiempo,Día
+        ///Tiempo,Semana
+        ///Tiempo,Mes
+        ///Tiempo,Año
+        ///Volumen,Litro
+        ///Volumen,Mililitro
+        ///Volumen,Centímetro cúbico
+        ///Volumen,Galón
+        ///Volumen,Pulgada cúbica
+        ///Volumen,Pie cúbico
+        ///Temperatura,Celsius
+        ///Temperatura,fahrenheit
+        ///Temperatura,Kelv [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string medida {
+            get {
+                return ResourceManager.GetString("medida", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap no_encontrado {
             get {
                 object obj = ResourceManager.GetObject("no_encontrado", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Movimiento rectilíneo uniforme
+        ///Movimiento rectilíneo uniformemente variado
+        ///Caída libre
+        ///Tiro parabólico
+        ///Movimiento circular uniforme.
+        /// </summary>
+        internal static string tipo_ecuacion {
+            get {
+                return ResourceManager.GetString("tipo_ecuacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Masa,C:/proyecto/img/convertidor/masa.png
+        ///Longitud,C:/proyecto/img/convertidor/longitud.png
+        ///Tiempo,C:/proyecto/img/convertidor/tiempo.png
+        ///Volumen,C:/proyecto/img/convertidor/volumen.png
+        ///Temperatura,C:/proyecto/img/convertidor/temperatura.png
+        ///Velocidad,C:/proyecto/img/convertidor/velocidad.png.
+        /// </summary>
+        internal static string tipo_medida {
+            get {
+                return ResourceManager.GetString("tipo_medida", resourceCulture);
             }
         }
         

@@ -1,40 +1,58 @@
 ﻿using System;
-using System.Data.SqlClient;
-using System.Data;
 using System.Windows.Forms;
+using System.Reflection;
+using System.IO;
+using System.Collections.Generic;
+using System.Text;
 
 namespace ProyectoFisica.Clases
 {
     internal class Funciones
     {
-        readonly BD bd = new BD();
-
-        public void LlenarComboBox(ComboBox comboBox, string sp)
+        public bool EsDecimal(string texto)
         {
-            comboBox.Items.Clear();
-            comboBox.Items.Add("Seleccionar");
-            comboBox.SelectedIndex = 0;
+            decimal valor;
+            return decimal.TryParse(texto, out valor);
+        }
 
-            using (SqlConnection conexion = bd.CrearConexion())
+        public void LimpiarComboBox(ComboBox cb)
+        {
+            cb.Items.Clear();
+            cb.Items.Add("Seleccionar");
+            cb.SelectedIndex = 0;
+        }
+
+        public List<string> ObtenerLineasArchivo(string nombreArchivo)
+        {
+            List<string> lineas = new List<string>();
+            try
             {
-                try
-                {
-                    conexion.Open();
-                    SqlCommand comando = new SqlCommand(sp, conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
+                var assembly = Assembly.GetExecutingAssembly();
+                string archivo = $"ProyectoFisica.Resources.txt.{nombreArchivo}.txt";
+                string[] recursos = assembly.GetManifestResourceNames();
 
-                    SqlDataReader reader = comando.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        comboBox.Items.Add(reader["valor"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                using (Stream stream = assembly.GetManifestResourceStream(archivo))
                 {
-                    MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if(stream == null)
+                    {
+                        throw new FileNotFoundException($"No se pudo encontrar el recurso incrustado '{archivo}'");
+                    }
+
+                    using (StreamReader sr = new StreamReader(stream, Encoding.UTF8))
+                    {
+                        string linea;
+                        while ((linea = sr.ReadLine()) != null)
+                        {
+                            lineas.Add(linea.Trim());
+                        }
+                    }
                 }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return lineas;
         }
     }
 }

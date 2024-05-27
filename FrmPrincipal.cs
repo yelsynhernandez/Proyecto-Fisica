@@ -10,6 +10,7 @@ namespace ProyectoFisica
     public partial class FrmPrincipal : Form
     {
         Formulas frm = new Formulas();
+        Funciones funciones = new Funciones();
         public FrmPrincipal()
         {
             InitializeComponent();
@@ -35,7 +36,7 @@ namespace ProyectoFisica
             switch (indice)
             {
                 case 1:
-                    CargarFormulas();
+                    CargarFormulasEcuacion();
                     break;
                 case 2:
                     txtFuerza.Focus();
@@ -141,7 +142,7 @@ namespace ProyectoFisica
         }
 
         /****************************** FORMULARIO ******************************/
-        private void CargarFormulas()
+        private void CargarFormulasEcuacion()
         {
             frm.CargarCategorias(cbCategoriaEcuacion);
             pbEcuacion.Image = Resources.espera;
@@ -190,12 +191,7 @@ namespace ProyectoFisica
             }
             else
             {
-                if(cbEcuacion.Items.Count > 0)
-                {
-                    cbEcuacion.Items.Clear();
-                }
-                cbEcuacion.Items.Add("Seleccionar");
-                cbEcuacion.SelectedIndex = 0;
+                funciones.LimpiarComboBox(cbEcuacion);
             }
             pbEcuacion.Image = Resources.espera;
         }
@@ -205,7 +201,7 @@ namespace ProyectoFisica
             ActualizarEcuaciones();
         }
 
-        private void btnCalcularEcuacion_Click(object sender, EventArgs e)
+        private void BtnCalcularEcuacion_Click(object sender, EventArgs e)
         {
             if(dgvVariables.Rows.Count > 0)
             {
@@ -225,7 +221,6 @@ namespace ProyectoFisica
                 string valoresConcatenados = string.Join(",", valores);
                 float resultado = frm.ResolverEcuacion(cbEcuacion.Text, valoresConcatenados);
                 txtResultadoEcuacion.Text = resultado.ToString();
-                //MessageBox.Show("Estos son los valores: " + valoresConcatenados, "Valores", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
@@ -234,16 +229,12 @@ namespace ProyectoFisica
         }
 
         /****************************** COMPONENTES EN X/Y ******************************/
-        public static bool EsDecimal(string texto)
-        {
-            decimal valor;
-            return decimal.TryParse(texto, out valor);
-        }
-        private void btnCalcularcomponentes_Click(object sender, EventArgs e)
+        
+        private void BtnCalcularcomponentes_Click(object sender, EventArgs e)
         {
             if (txtFuerza.Text.Length > 0 && txtAngulo.Text.Length > 0)
             {
-                if (EsDecimal(txtFuerza.Text) && EsDecimal(txtAngulo.Text))
+                if (funciones.EsDecimal(txtFuerza.Text) && funciones.EsDecimal(txtAngulo.Text))
                 {
                     double fuerza = double.Parse(txtFuerza.Text);
                     double angulo = double.Parse(txtAngulo.Text);
@@ -270,7 +261,7 @@ namespace ProyectoFisica
             }
         }
 
-        private void btnLimpiarComponentes_Click(object sender, EventArgs e)
+        private void BtnLimpiarComponentes_Click(object sender, EventArgs e)
         {
             txtFuerza.Text = String.Empty;
             txtAngulo.Text = String.Empty;
@@ -281,7 +272,7 @@ namespace ProyectoFisica
 
 
         /****************************** CREDITOS ******************************/
-        private void acercaDeToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AcercaDeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string mensaje = "Autor: Yelsyn Hernández\n";
             mensaje += "Carnet: 9490-17-969\n";

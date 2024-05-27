@@ -1,0 +1,6 @@
+Masa,C:/proyecto/img/convertidor/masa.png
+Longitud,C:/proyecto/img/convertidor/longitud.png
+Tiempo,C:/proyecto/img/convertidor/tiempo.png
+Volumen,C:/proyecto/img/convertidor/volumen.png
+Temperatura,C:/proyecto/img/convertidor/temperatura.png
+Velocidad,C:/proyecto/img/convertidor/velocidad.png

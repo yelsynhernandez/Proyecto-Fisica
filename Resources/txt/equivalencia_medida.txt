@@ -1,0 +1,218 @@
+Kilogramo,Gramo,1000
+Kilogramo,Tonelada,0.001
+Kilogramo,Libra,2.20462
+Kilogramo,Onza,35.274
+Kilogramo,Miligramo,1e+006
+Kilogramo,Arroba,0.015748
+Gramo,Kilogramo,0.001
+Gramo,Tonelada,1e-006
+Gramo,Libra,0.00220462
+Gramo,Onza,0.035274
+Gramo,Miligramo,1000
+Gramo,Arroba,1.5748e-005
+Tonelada,Kilogramo,1000
+Tonelada,Gramo,1e+006
+Tonelada,Libra,2204.62
+Tonelada,Onza,35274
+Tonelada,Miligramo,1e+009
+Tonelada,Arroba,15.748
+Libra,Kilogramo,0.453592
+Libra,Gramo,453.592
+Libra,Tonelada,0.000453592
+Libra,Onza,16
+Libra,Miligramo,453592
+Libra,Arroba,7.14286
+Onza,Kilogramo,0.0283495
+Onza,Gramo,28.3495
+Onza,Tonelada,2.83495e-005
+Onza,Libra,0.0625
+Onza,Miligramo,28349.5
+Onza,Arroba,444.444
+Miligramo,Kilogramo,1e-006
+Miligramo,Gramo,0.001
+Miligramo,Tonelada,1e-009
+Miligramo,Libra,2.20462e-006
+Miligramo,Onza,3.5274e-005
+Miligramo,Arroba,1.5747e-008
+Arroba,Kilogramo,63.5029
+Arroba,Gramo,63502.9
+Arroba,Tonelada,0.0635029
+Arroba,Libra,140.014
+Arroba,Onza,2240.23
+Arroba,Miligramo,6.35029e+007
+Metro,Centímetro,100
+Metro,Milímetro,1000
+Metro,Kilómetro,0.001
+Metro,Milla,0.000621371
+Metro,Yarda,1.09361
+Metro,Pie,3.28084
+Metro,Pulgada,39.3701
+Centímetro,Metro,0.01
+Centímetro,Milímetro,10
+Centímetro,Kilómetro,1e-005
+Centímetro,Milla,6.21371e-006
+Centímetro,Yarda,0.0109361
+Centímetro,Pie,0.0328084
+Centímetro,Pulgada,0.393701
+Milímetro,Metro,0.001
+Milímetro,Centímetro,0.1
+Milímetro,Kilómetro,1e-006
+Milímetro,Milla,6.21371e-007
+Milímetro,Yarda,0.00109361
+Milímetro,Pie,0.00328084
+Milímetro,Pulgada,0.0393701
+Kilómetro,Metro,1000
+Kilómetro,Centímetro,100000
+Kilómetro,Milímetro,1e+006
+Kilómetro,Milla,0.621371
+Kilómetro,Yarda,1093.61
+Kilómetro,Pie,3280.84
+Kilómetro,Pulgada,39370.1
+Milla,Metro,1609.34
+Milla,Centímetro,160934
+Milla,Milímetro,1.60934e+006
+Milla,Kilómetro,1.60934
+Milla,Yarda,1760
+Milla,Pie,5280
+Milla,Pulgada,63360
+Yarda,Metro,0.9144
+Yarda,Centímetro,91.44
+Yarda,Milímetro,914.4
+Yarda,Kilómetro,0.0009144
+Yarda,Milla,0.000568182
+Yarda,Pie,3
+Yarda,Pulgada,36
+Pie,Metro,0.3048
+Pie,Centímetro,30.48
+Pie,Milímetro,304.8
+Pie,Kilómetro,0.0003048
+Pie,Milla,0.000189394
+Pie,Yarda,0.333333
+Pie,Pulgada,12
+Pulgada,Metro,0.0254
+Pulgada,Centímetro,2.54
+Pulgada,Milímetro,25.4
+Pulgada,Kilómetro,2.54e-005
+Pulgada,Milla,1.57828e-005
+Pulgada,Yarda,0.0277778
+Pulgada,Pie,0.0833333
+Segundo,Minuto,0.0166667
+Segundo,Hora,0.000277778
+Segundo,Día,1.15741e-005
+Segundo,Semana,1.65344e-006
+Segundo,Mes,3.80265e-007
+Segundo,Año,3.17098e-008
+Minuto,Segundo,60
+Minuto,Hora,0.0166667
+Minuto,Día,0.000694444
+Minuto,Semana,9.9206e-005
+Minuto,Mes,2.28311e-005
+Minuto,Año,1.90259e-006
+Hora,Segundo,3600
+Hora,Minuto,60
+Hora,Día,0.0416667
+Hora,Semana,0.00595238
+Hora,Mes,0.00136986
+Hora,Año,0.000114155
+Día,Segundo,86400
+Día,Minuto,1440
+Día,Hora,24
+Día,Semana,0.142857
+Día,Mes,0.0328549
+Día,Año,0.00273791
+Semana,Segundo,604800
+Semana,Minuto,10080
+Semana,Hora,168
+Semana,Día,7
+Semana,Mes,0.230137
+Semana,Año,0.0191781
+Mes,Segundo,2.62974e+006
+Mes,Minuto,43829.1
+Mes,Hora,730.484
+Mes,Día,30.4369
+Mes,Semana,4.34524
+Mes,Año,0.0833333
+Año,Segundo,3.15576e+007
+Año,Minuto,525960
+Año,Hora,8760
+Año,Día,365
+Año,Semana,52.1429
+Año,Mes,12
+Litro,Mililitro,1000
+Litro,Centímetro cúbico,1000
+Litro,Galón,0.264172
+Litro,Pulgada cúbica,61.0237
+Litro,Pie cúbico,0.0353147
+Mililitro,Litro,0.001
+Mililitro,Centímetro cúbico,1
+Mililitro,Galón,0.000264172
+Mililitro,Pulgada cúbica,0.0610237
+Mililitro,Pie cúbico,3.53147e-005
+Centímetro cúbico,Litro,0.001
+Centímetro cúbico,Mililitro,0.001
+Centímetro cúbico,Galón,0.000264172
+Centímetro cúbico,Pulgada cúbica,0.0610237
+Centímetro cúbico,Pie cúbico,3.53147e-005
+Galón,Litro,3.78541
+Galón,Mililitro,3785.41
+Galón,Centímetro cúbico,3785.41
+Galón,Pulgada cúbica,231
+Galón,Pie cúbico,0.133681
+Pulgada cúbica,Litro,0.0163871
+Pulgada cúbica,Mililitro,16.3871
+Pulgada cúbica,Centímetro cúbico,16.3871
+Pulgada cúbica,Galón,0.004329
+Pulgada cúbica,Pie cúbico,0.000578704
+Pie cúbico,Litro,28.3168
+Pie cúbico,Mililitro,28316.8
+Pie cúbico,Centímetro cúbico,28316.8
+Pie cúbico,Galón,7.48052
+Pie cúbico,Pulgada cúbica,1728
+Celsius,fahrenheit,33.8
+Celsius,Kelvin,274.15
+fahrenheit,Celsius,-17.2222
+fahrenheit,Kelvin,255.928
+Kelvin,Celsius,-272.15
+Kelvin,fahrenheit,-457.87
+Metros por segundo,Kilómetros por hora,3.6
+Metros por segundo,Millas por hora,2.23694
+Metros por segundo,Pies por segundo,3.28084
+Metros por segundo,Pies por minuto,196.85
+Metros por segundo,Pulgadas por segundo,39.3701
+Metros por segundo,Pulgadas por minuto,2362.2
+Kilómetros por hora,Metros por segundo,0.277778
+Kilómetros por hora,Millas por hora,0.621371
+Kilómetros por hora,Pies por segundo,0.911344
+Kilómetros por hora,Pies por minuto,54.6807
+Kilómetros por hora,Pulgadas por segundo,19.685
+Kilómetros por hora,Pulgadas por minuto,1181.1
+Millas por hora,Metros por segundo,0.44704
+Millas por hora,Kilómetros por hora,1.60934
+Millas por hora,Pies por segundo,1.46667
+Millas por hora,Pies por minuto,88
+Millas por hora,Pulgadas por segundo,17.6
+Millas por hora,Pulgadas por minuto,1056
+Pies por segundo,Metros por segundo,0.3048
+Pies por segundo,Kilómetros por hora,1.09728
+Pies por segundo,Millas por hora,0.681818
+Pies por segundo,Pies por minuto,60
+Pies por segundo,Pulgadas por segundo,12
+Pies por segundo,Pulgadas por minuto,720
+Pies por minuto,Metros por segundo,0.00508
+Pies por minuto,Kilómetros por hora,0.018288
+Pies por minuto,Millas por hora,0.0113636
+Pies por minuto,Pies por segundo,0.0166667
+Pies por minuto,Pulgadas por segundo,0.2
+Pies por minuto,Pulgadas por minuto,12
+Pulgadas por segundo,Metros por segundo,0.0254
+Pulgadas por segundo,Kilómetros por hora,0.09144
+Pulgadas por segundo,Millas por hora,0.0568182
+Pulgadas por segundo,Pies por segundo,0.0833333
+Pulgadas por segundo,Pies por minuto,5
+Pulgadas por segundo,Pulgadas por minuto,60
+Pulgadas por minuto,Metros por segundo,0.000423333
+Pulgadas por minuto,Kilómetros por hora,0.001524
+Pulgadas por minuto,Millas por hora,0.00094697
+Pulgadas por minuto,Pies por segundo,0.00138889
+Pulgadas por minuto,Pies por minuto,0.0833333
+Pulgadas por minuto,Pulgadas por segundo,0.0166667

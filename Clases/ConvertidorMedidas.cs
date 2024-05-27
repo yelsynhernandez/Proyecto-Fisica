@@ -8,16 +8,14 @@ namespace ProyectoFisica.Clases
 {
     internal class ConvertidorMedidas
     {
-        BD bd = new BD();
         private Dictionary<string, string> unidadMedida = new Dictionary<string, string>();
+        Funciones funciones = new Funciones();
         public void CargarUnidadesDeMedida(ComboBox cb)
-        {
-            ListarUnidadesDeMedida();
-            cb.Items.Clear();
-            cb.Items.Add("Seleccionar");
-            cb.SelectedIndex = 0;
+        {   
             try
             {
+                ListarUnidadesDeMedida();
+                funciones.LimpiarComboBox(cb);
                 if (unidadMedida.Count > 0)
                 {
                     foreach (var item in unidadMedida)
@@ -35,27 +33,14 @@ namespace ProyectoFisica.Clases
         private void ListarUnidadesDeMedida()
         {
             unidadMedida.Clear();
-            using (SqlConnection conexion = bd.CrearConexion())
+            List<string> lineasArchivo = funciones.ObtenerLineasArchivo("tipo_medida");
+
+            foreach (string linea in lineasArchivo)
             {
-                try
+                string[] partes = linea.Split(',');
+                if(partes.Length == 2)
                 {
-                    conexion.Open();
-
-                    SqlCommand comando = new SqlCommand("listado_categorias", conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataReader reader = comando.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        unidadMedida.Add(reader["clave"].ToString(), reader["valor"].ToString());
-                    }
-                    reader.Close();
-
-                    conexion.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    unidadMedida.Add(partes[0], partes[1]);
                 }
             }
         }
@@ -65,37 +50,27 @@ namespace ProyectoFisica.Clases
             return unidadMedida[nombre];
         }
 
-        public void CargarMedidas(ComboBox cb1,ComboBox cb2, string tipo_medida)
+        public void CargarMedidas(ComboBox cbOrigen,ComboBox cbDestino, string tipo_medida)
         {
-            cb1.Items.Clear();
-            cb1.Items.Add("Seleccionar");
-            cb1.SelectedIndex = 0;
-
-            cb2.Items.Clear();
-            cb2.Items.Add("Seleccionar");
-            cb2.SelectedIndex = 0;
-
-            using (SqlConnection conexion = bd.CrearConexion())
+            try
             {
-                try
-                {
-                    conexion.Open();
-                    SqlCommand comando = new SqlCommand("listado_medidas", conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-                    comando.Parameters.AddWithValue("@tipo_medida", tipo_medida);
+                List<string> lineasArchivo = funciones.ObtenerLineasArchivo("medida");
+                funciones.LimpiarComboBox(cbOrigen);
+                funciones.LimpiarComboBox(cbDestino);
 
-                    SqlDataReader reader = comando.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        cb1.Items.Add(reader["nombre"].ToString());
-                        cb2.Items.Add(reader["nombre"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
+                foreach(string linea in lineasArchivo)
                 {
-                    MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string[] partes = linea.Split(',');
+                    if (tipo_medida == partes[0])
+                    {
+                        cbOrigen.Items.Add(partes[1]);
+                        cbDestino.Items.Add(partes[1]);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -103,7 +78,7 @@ namespace ProyectoFisica.Clases
         {
             dataGridView.Rows.Clear();
             dataGridView.Columns.Clear();
-
+            /*
             using (SqlConnection conexion = bd.CrearConexion())
             {
                 try
@@ -120,34 +95,32 @@ namespace ProyectoFisica.Clases
                     MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            */
         }
 
         public float ConvertirMedidas(string medida_origen, string medida_destino, float cantidad)
         {
             float resultado = 0;
-
-            using (SqlConnection conexion = bd.CrearConexion())
+            try
             {
-                try
+                List<string> lineasArchivo = funciones.ObtenerLineasArchivo("equivalencia_medida");
+
+                foreach(string linea in lineasArchivo)
                 {
-                    conexion.Open();
-                    SqlCommand comando = new SqlCommand("convertir", conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-
-                    comando.Parameters.AddWithValue("@medida_origen", medida_origen);
-                    comando.Parameters.AddWithValue("@medida_destino", medida_destino);
-                    comando.Parameters.AddWithValue("@cantidad", cantidad);
-                    comando.Parameters.Add("@valor", SqlDbType.Float);
-                    comando.Parameters["@valor"].Direction = ParameterDirection.Output;
-
-                    comando.ExecuteNonQuery();
-
-                    resultado = float.Parse(comando.Parameters["@valor"].Value.ToString());
+                    string[] partes = linea.Split(',');
+                    if(partes.Length == 3)
+                    {
+                        if (medida_origen == partes[0] && medida_destino == partes[1])
+                        {
+                            float valor = float.Parse(partes[2]);
+                            resultado = cantidad * valor;
+                        }
+                    }
                 }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al ejecutar el procedimiento almacenado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
             return resultado;
