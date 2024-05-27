@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Data.SqlClient;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoFisica.Clases
@@ -10,12 +7,10 @@ namespace ProyectoFisica.Clases
     internal class Formulas
     {
         Funciones funciones = new Funciones();
-        BD bd = new BD();
-        //List<Tuple<string, string, string, int>> ecuacion = new List<Tuple<string, string, string, int>>();
-        //List<Tuple<string, string, string>> ecuacion = new List<Tuple<string, string, string>>();
         Dictionary<string, string> diccionarioEcuaciones = new Dictionary<string, string>();
         Dictionary<string, string> diccionarioVariables = new Dictionary<string, string>();
         Dictionary<string, string> diccionarioFormulas = new Dictionary<string, string>();
+
         public void CargarCategorias(ComboBox cbEcuacion)
         {
             try
@@ -83,13 +78,10 @@ namespace ProyectoFisica.Clases
 
         public void CargarVariables(string _ecuacion, DataGridView dgv)
         {
-            // Buscar la coincidencia en la lista
-            //var tuplaEncontrada = ecuacion.Find(t => t.Item1 == _ecuacion);
-
-            //if (tuplaEncontrada != null)
+            dgv.Rows.Clear();
+            dgv.Columns.Clear();
             if(diccionarioVariables.ContainsKey(_ecuacion))
             {
-                //string variables = tuplaEncontrada.Item3;
                 string variables = diccionarioVariables[_ecuacion];
                 string[] variablesArray = variables.Split(',');
                 int cantidadVariables = variablesArray.Length;
@@ -115,51 +107,55 @@ namespace ProyectoFisica.Clases
                 dgv.Columns[1].Resizable = DataGridViewTriState.False;
                 dgv.AllowUserToAddRows = false;
             }
-            else
-            {
-                dgv.Rows.Clear();
-            }
         }
 
         public float ResolverEcuacion(string nombre_ecuacion, string valores)
         {
             float resultado = 0;
+            try
+            {
+                if (!diccionarioEcuaciones.ContainsKey(nombre_ecuacion))
+                {
+                    throw new ArgumentException("No se ha configurado la ecuación para operar");
+                }
 
-            //using (SqlConnection conexion = bd.CrearConexion())
-            //{
-            //    try
-            //    {
-            //        var tuplaEncontrada = ecuacion.Find(t => t.Item1 == nombre_ecuacion);
-            //        int id_ecuacion;
-            //        if( tuplaEncontrada != null )
-            //        {
-            //            id_ecuacion = tuplaEncontrada.Item4;
-            //            conexion.Open();
-            //            SqlCommand comando = new SqlCommand("resolver_ecuacion", conexion);
-            //            comando.CommandType = CommandType.StoredProcedure;
+                //primero obtener la ecuacion
+                string ecuacion = diccionarioFormulas[nombre_ecuacion];
+                //Variables de la ecuacion
+                string variables = diccionarioVariables[nombre_ecuacion];
+                string[] arrayVariables = variables.Split(',');
+                //Variables enviadas
+                string[] arrayValores = valores.Split(',');
 
-            //            comando.Parameters.AddWithValue("@id_ecuacion", id_ecuacion);
-            //            comando.Parameters.AddWithValue("@valores", valores);
-            //            comando.Parameters.Add("@resultado", SqlDbType.Float);
-            //            comando.Parameters["@resultado"].Direction = ParameterDirection.Output;
+                if(arrayVariables.Length != arrayValores.Length)
+                {
+                    throw new ArgumentException("La cantidad de parámetros no coincide con las variables necesarias");
+                }
 
-            //            comando.ExecuteNonQuery();
+                Console.WriteLine($"Ecuacion antes del reemplazo: {ecuacion}");
+                for (int i = 0; i < arrayVariables.Length; i++)
+                {
+                    ecuacion = ecuacion.Replace(arrayVariables[i], arrayValores[i]);
+                }
 
-            //            resultado = float.Parse(comando.Parameters["@resultado"].Value.ToString());
-            //        }
-            //        else
-            //        {
-            //            MessageBox.Show("No se pudo encontrar la ecuación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        }
-
-                   
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        MessageBox.Show("Error al ejecutar el procedimiento almacenado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    }
-            //}
-
+                //Luego de realizarse el reemplazo se ejecuta la consulta
+                using (var dataTable = new System.Data.DataTable())
+                {
+                    try
+                    {
+                        var calculo = dataTable.Compute(ecuacion, string.Empty);
+                        resultado = float.Parse(calculo.ToString());
+                    }
+                    catch (Exception ex)
+                    {
+                        throw new InvalidOperationException("Error al evaluar la ecuación: " + ex.Message);
+                    }
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             return resultado;
         }
     }

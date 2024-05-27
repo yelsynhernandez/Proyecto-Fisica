@@ -79,6 +79,7 @@
             this.pbTriangulo = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.btnGuiaFormulas = new System.Windows.Forms.Button();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpCM.SuspendLayout();
@@ -300,6 +301,7 @@
             // tpFormulas
             // 
             this.tpFormulas.BackColor = System.Drawing.Color.Ivory;
+            this.tpFormulas.Controls.Add(this.btnGuiaFormulas);
             this.tpFormulas.Controls.Add(this.lblConsideracionesFormulario);
             this.tpFormulas.Controls.Add(this.lblResultadoEcuacion);
             this.tpFormulas.Controls.Add(this.txtResultadoEcuacion);
@@ -597,6 +599,15 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
+            // btnGuiaFormulas
+            // 
+            this.btnGuiaFormulas.Location = new System.Drawing.Point(844, 109);
+            this.btnGuiaFormulas.Name = "btnGuiaFormulas";
+            this.btnGuiaFormulas.Size = new System.Drawing.Size(75, 23);
+            this.btnGuiaFormulas.TabIndex = 17;
+            this.btnGuiaFormulas.Text = "button1";
+            this.btnGuiaFormulas.UseVisualStyleBackColor = true;
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 17F);
@@ -683,6 +694,7 @@
         private System.Windows.Forms.TextBox txtResultadoEcuacion;
         private System.Windows.Forms.Label lblConsideracionesFormulario;
         private System.Windows.Forms.ToolStripMenuItem cómoConfigurarElProyectoToolStripMenuItem;
+        private System.Windows.Forms.Button btnGuiaFormulas;
     }
 }
 

@@ -1,4 +1,4 @@
-Movimiento rectilíneo uniforme|Distancia|C:/proyecto/img/mru/distancia.png|v,t|valor1*valor2
+Movimiento rectilíneo uniforme|Distancia|C:/proyecto/img/mru/distancia.png|x,t|x*t
 Movimiento rectilíneo uniforme|Velocidad|C:/proyecto/img/mru/velocidad.png|d,t|valor1/valor2
 Movimiento rectilíneo uniforme|Tiempo|C:/proyecto/img/mru/tiempo.png|d,v|valor1/valor2
 Movimiento rectilíneo uniforme|Distancia final|C:/proyecto/img/mru/distancia_final.png|Xo, v,t|valor1+(valor2*valor3)

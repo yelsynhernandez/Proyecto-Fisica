@@ -8,7 +8,6 @@ namespace ProyectoFisica.Clases
 {
     internal class ConvertidorMedidas
     {
-        BD bd = new BD();
         private Dictionary<string, string> unidadMedida = new Dictionary<string, string>();
         Funciones funciones = new Funciones();
         public void CargarUnidadesDeMedida(ComboBox cb)
@@ -81,7 +80,7 @@ namespace ProyectoFisica.Clases
         {
             dataGridView.Rows.Clear();
             dataGridView.Columns.Clear();
-
+            /*
             using (SqlConnection conexion = bd.CrearConexion())
             {
                 try
@@ -98,6 +97,7 @@ namespace ProyectoFisica.Clases
                     MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
+            */
         }
 
         public float ConvertirMedidas(string medida_origen, string medida_destino, float cantidad)

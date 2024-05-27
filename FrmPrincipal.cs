@@ -185,7 +185,6 @@ namespace ProyectoFisica
 
         private void cbCategoriaEcuacion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(cbCategoriaEcuacion.Text);
             if(cbCategoriaEcuacion.SelectedIndex != 0)
             {
                 ActualizarEcuaciones();
