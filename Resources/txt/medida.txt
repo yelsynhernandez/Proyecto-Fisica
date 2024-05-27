@@ -1,0 +1,38 @@
+Masa,Kilogramo
+Masa,Gramo
+Masa,Tonelada
+Masa,Libra
+Masa,Onza
+Masa,Miligramo
+Masa,Arroba
+Longitud,Metro
+Longitud,Centímetro
+Longitud,Milímetro
+Longitud,Kilómetro
+Longitud,Milla
+Longitud,Yarda
+Longitud,Pie
+Longitud,Pulgada
+Tiempo,Segundo
+Tiempo,Minuto
+Tiempo,Hora
+Tiempo,Día
+Tiempo,Semana
+Tiempo,Mes
+Tiempo,Año
+Volumen,Litro
+Volumen,Mililitro
+Volumen,Centímetro cúbico
+Volumen,Galón
+Volumen,Pulgada cúbica
+Volumen,Pie cúbico
+Temperatura,Celsius
+Temperatura,fahrenheit
+Temperatura,Kelvin
+Velocidad,Metros por segundo
+Velocidad,Kilómetros por hora
+Velocidad,Millas por hora
+Velocidad,Pies por segundo
+Velocidad,Pies por minuto
+Velocidad,Pulgadas por segundo
+Velocidad,Pulgadas por minuto

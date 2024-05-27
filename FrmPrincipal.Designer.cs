@@ -35,6 +35,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cómoConfigurarElProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tcPrincipal = new System.Windows.Forms.TabControl();
             this.tpCM = new System.Windows.Forms.TabPage();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.cbTipoMedida = new System.Windows.Forms.ComboBox();
             this.tpFormulas = new System.Windows.Forms.TabPage();
+            this.lblConsideracionesFormulario = new System.Windows.Forms.Label();
             this.lblResultadoEcuacion = new System.Windows.Forms.Label();
             this.txtResultadoEcuacion = new System.Windows.Forms.TextBox();
             this.btnCalcularEcuacion = new System.Windows.Forms.Button();
@@ -65,7 +67,7 @@
             this.lblDisclaimerComponentes = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblComponenteX = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lblDireccion = new System.Windows.Forms.Label();
             this.lblFuerza = new System.Windows.Forms.Label();
             this.btnLimpiarComponentes = new System.Windows.Forms.Button();
             this.btnCalcularcomponentes = new System.Windows.Forms.Button();
@@ -74,10 +76,9 @@
             this.txtComponenteX = new System.Windows.Forms.TextBox();
             this.txtAngulo = new System.Windows.Forms.TextBox();
             this.txtFuerza = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.pbTriangulo = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.lblConsideracionesFormulario = new System.Windows.Forms.Label();
             this.msPrincipal.SuspendLayout();
             this.tcPrincipal.SuspendLayout();
             this.tpCM.SuspendLayout();
@@ -86,7 +87,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvVariables)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbEcuacion)).BeginInit();
             this.tpComponentes.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTriangulo)).BeginInit();
             this.SuspendLayout();
             // 
             // msPrincipal
@@ -121,7 +122,8 @@
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.acercaDeToolStripMenuItem});
+            this.acercaDeToolStripMenuItem,
+            this.cómoConfigurarElProyectoToolStripMenuItem});
             this.ayudaToolStripMenuItem.Font = new System.Drawing.Font("Arial", 11F);
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(60, 21);
@@ -130,9 +132,15 @@
             // acercaDeToolStripMenuItem
             // 
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
-            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
             this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+            // 
+            // cómoConfigurarElProyectoToolStripMenuItem
+            // 
+            this.cómoConfigurarElProyectoToolStripMenuItem.Name = "cómoConfigurarElProyectoToolStripMenuItem";
+            this.cómoConfigurarElProyectoToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
+            this.cómoConfigurarElProyectoToolStripMenuItem.Text = "¿Cómo configurar el proyecto?";
             // 
             // tcPrincipal
             // 
@@ -311,6 +319,15 @@
             this.tpFormulas.TabIndex = 1;
             this.tpFormulas.Text = "Fórmulas";
             // 
+            // lblConsideracionesFormulario
+            // 
+            this.lblConsideracionesFormulario.AutoSize = true;
+            this.lblConsideracionesFormulario.Location = new System.Drawing.Point(8, 333);
+            this.lblConsideracionesFormulario.Name = "lblConsideracionesFormulario";
+            this.lblConsideracionesFormulario.Size = new System.Drawing.Size(95, 17);
+            this.lblConsideracionesFormulario.TabIndex = 16;
+            this.lblConsideracionesFormulario.Text = "Instrucciones";
+            // 
             // lblResultadoEcuacion
             // 
             this.lblResultadoEcuacion.AutoSize = true;
@@ -423,7 +440,7 @@
             this.tpComponentes.Controls.Add(this.lblDisclaimerComponentes);
             this.tpComponentes.Controls.Add(this.label6);
             this.tpComponentes.Controls.Add(this.lblComponenteX);
-            this.tpComponentes.Controls.Add(this.label5);
+            this.tpComponentes.Controls.Add(this.lblDireccion);
             this.tpComponentes.Controls.Add(this.lblFuerza);
             this.tpComponentes.Controls.Add(this.btnLimpiarComponentes);
             this.tpComponentes.Controls.Add(this.btnCalcularcomponentes);
@@ -432,7 +449,7 @@
             this.tpComponentes.Controls.Add(this.txtComponenteX);
             this.tpComponentes.Controls.Add(this.txtAngulo);
             this.tpComponentes.Controls.Add(this.txtFuerza);
-            this.tpComponentes.Controls.Add(this.pictureBox2);
+            this.tpComponentes.Controls.Add(this.pbTriangulo);
             this.tpComponentes.Location = new System.Drawing.Point(4, 26);
             this.tpComponentes.Name = "tpComponentes";
             this.tpComponentes.Padding = new System.Windows.Forms.Padding(3);
@@ -467,18 +484,20 @@
             this.lblComponenteX.TabIndex = 15;
             this.lblComponenteX.Text = "Valor del componente en X:";
             // 
-            // label5
+            // lblDireccion
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(317, 347);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 17);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Fuerza:";
+            this.lblDireccion.AutoSize = true;
+            this.lblDireccion.BackColor = System.Drawing.Color.White;
+            this.lblDireccion.Location = new System.Drawing.Point(317, 347);
+            this.lblDireccion.Name = "lblDireccion";
+            this.lblDireccion.Size = new System.Drawing.Size(74, 17);
+            this.lblDireccion.TabIndex = 14;
+            this.lblDireccion.Text = "Dirección:";
             // 
             // lblFuerza
             // 
             this.lblFuerza.AutoSize = true;
+            this.lblFuerza.BackColor = System.Drawing.Color.White;
             this.lblFuerza.Location = new System.Drawing.Point(163, 222);
             this.lblFuerza.Name = "lblFuerza";
             this.lblFuerza.Size = new System.Drawing.Size(58, 17);
@@ -537,7 +556,7 @@
             // txtAngulo
             // 
             this.txtAngulo.Font = new System.Drawing.Font("Arial", 14F);
-            this.txtAngulo.Location = new System.Drawing.Point(372, 340);
+            this.txtAngulo.Location = new System.Drawing.Point(392, 340);
             this.txtAngulo.Name = "txtAngulo";
             this.txtAngulo.Size = new System.Drawing.Size(91, 29);
             this.txtAngulo.TabIndex = 3;
@@ -550,15 +569,15 @@
             this.txtFuerza.Size = new System.Drawing.Size(166, 29);
             this.txtFuerza.TabIndex = 1;
             // 
-            // pictureBox2
+            // pbTriangulo
             // 
-            this.pictureBox2.Image = global::ProyectoFisica.Properties.Resources.triangulo;
-            this.pictureBox2.Location = new System.Drawing.Point(87, 70);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(700, 331);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 4;
-            this.pictureBox2.TabStop = false;
+            this.pbTriangulo.Image = global::ProyectoFisica.Properties.Resources.triangulo;
+            this.pbTriangulo.Location = new System.Drawing.Point(87, 70);
+            this.pbTriangulo.Name = "pbTriangulo";
+            this.pbTriangulo.Size = new System.Drawing.Size(700, 331);
+            this.pbTriangulo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbTriangulo.TabIndex = 4;
+            this.pbTriangulo.TabStop = false;
             // 
             // tabControl1
             // 
@@ -577,15 +596,6 @@
             this.menuStrip1.Size = new System.Drawing.Size(882, 28);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // lblConsideracionesFormulario
-            // 
-            this.lblConsideracionesFormulario.AutoSize = true;
-            this.lblConsideracionesFormulario.Location = new System.Drawing.Point(8, 333);
-            this.lblConsideracionesFormulario.Name = "lblConsideracionesFormulario";
-            this.lblConsideracionesFormulario.Size = new System.Drawing.Size(95, 17);
-            this.lblConsideracionesFormulario.TabIndex = 16;
-            this.lblConsideracionesFormulario.Text = "Instrucciones";
             // 
             // FrmPrincipal
             // 
@@ -616,7 +626,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbEcuacion)).EndInit();
             this.tpComponentes.ResumeLayout(false);
             this.tpComponentes.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbTriangulo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -652,7 +662,7 @@
         private System.Windows.Forms.TextBox txtFuerza;
         private System.Windows.Forms.PictureBox pbConvertidor;
         private System.Windows.Forms.DataGridView dgvVariables;
-        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pbTriangulo;
         private System.Windows.Forms.Label lblComponentes;
         private System.Windows.Forms.TextBox txtComponenteX;
         private System.Windows.Forms.Label label4;
@@ -663,7 +673,7 @@
         private System.Windows.Forms.Label lblFuerza;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblComponenteX;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblDisclaimerComponentes;
         private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
@@ -672,6 +682,7 @@
         private System.Windows.Forms.Label lblResultadoEcuacion;
         private System.Windows.Forms.TextBox txtResultadoEcuacion;
         private System.Windows.Forms.Label lblConsideracionesFormulario;
+        private System.Windows.Forms.ToolStripMenuItem cómoConfigurarElProyectoToolStripMenuItem;
     }
 }
 
