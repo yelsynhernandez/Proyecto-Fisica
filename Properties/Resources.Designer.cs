@@ -101,6 +101,26 @@ namespace ProyectoFisica.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GuiaVariables {
+            get {
+                object obj = ResourceManager.GetObject("GuiaVariables", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info {
+            get {
+                object obj = ResourceManager.GetObject("info", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Masa,Kilogramo
         ///Masa,Gramo
         ///Masa,Tonelada
@@ -109,9 +129,9 @@ namespace ProyectoFisica.Properties {
         ///Masa,Miligramo
         ///Masa,Arroba
         ///Longitud,Metro
-        ///Longitud,Centímetro
-        ///Longitud,Milímetro
-        ///Longitud,Kilómetro
+        ///Longitud,CentÃ­metro
+        ///Longitud,MilÃ­metro
+        ///Longitud,KilÃ³metro
         ///Longitud,Milla
         ///Longitud,Yarda
         ///Longitud,Pie
@@ -119,19 +139,19 @@ namespace ProyectoFisica.Properties {
         ///Tiempo,Segundo
         ///Tiempo,Minuto
         ///Tiempo,Hora
-        ///Tiempo,Día
+        ///Tiempo,DÃ­a
         ///Tiempo,Semana
         ///Tiempo,Mes
-        ///Tiempo,Año
+        ///Tiempo,AÃ±o
         ///Volumen,Litro
         ///Volumen,Mililitro
-        ///Volumen,Centímetro cúbico
-        ///Volumen,Galón
-        ///Volumen,Pulgada cúbica
-        ///Volumen,Pie cúbico
+        ///Volumen,CentÃ­metro cÃºbico
+        ///Volumen,GalÃ³n
+        ///Volumen,Pulgada cÃºbica
+        ///Volumen,Pie cÃºbico
         ///Temperatura,Celsius
         ///Temperatura,fahrenheit
-        ///Temperatura,Kelv [rest of string was truncated]&quot;;.
+        ///Temper [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string medida {
             get {
@@ -150,10 +170,10 @@ namespace ProyectoFisica.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Movimiento rectilíneo uniforme
-        ///Movimiento rectilíneo uniformemente variado
-        ///Caída libre
-        ///Tiro parabólico
+        ///   Looks up a localized string similar to Movimiento rectilÃ­neo uniforme
+        ///Movimiento rectilÃ­neo uniformemente variado
+        ///CaÃ­da libre
+        ///Tiro parabÃ³lico
         ///Movimiento circular uniforme.
         /// </summary>
         internal static string tipo_ecuacion {
@@ -163,12 +183,12 @@ namespace ProyectoFisica.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Masa,C:/proyecto/img/convertidor/masa.png
-        ///Longitud,C:/proyecto/img/convertidor/longitud.png
-        ///Tiempo,C:/proyecto/img/convertidor/tiempo.png
-        ///Volumen,C:/proyecto/img/convertidor/volumen.png
-        ///Temperatura,C:/proyecto/img/convertidor/temperatura.png
-        ///Velocidad,C:/proyecto/img/convertidor/velocidad.png.
+        ///   Looks up a localized string similar to Masa,C:/source/img/convertidor/masa.png
+        ///Longitud,C:/source/img/convertidor/longitud.png
+        ///Tiempo,C:/source/img/convertidor/tiempo.png
+        ///Volumen,C:/source/img/convertidor/volumen.png
+        ///Temperatura,C:/source/img/convertidor/temperatura.png
+        ///Velocidad,C:/source/img/convertidor/velocidad.png.
         /// </summary>
         internal static string tipo_medida {
             get {

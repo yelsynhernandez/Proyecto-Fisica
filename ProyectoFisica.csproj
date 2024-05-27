@@ -49,6 +49,12 @@
     <Compile Include="Clases\ConvertidorMedidas.cs" />
     <Compile Include="Clases\Funciones.cs" />
     <Compile Include="Clases\Formulas.cs" />
+    <Compile Include="FrmGuiaFormulas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGuiaFormulas.Designer.cs">
+      <DependentUpon>FrmGuiaFormulas.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +63,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmGuiaFormulas.resx">
+      <DependentUpon>FrmGuiaFormulas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,19 +93,19 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\espera.png" />
+    <None Include="Resources\img\espera.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\no_encontrado.png" />
+    <None Include="Resources\img\no_encontrado.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\triangulo.png" />
+    <None Include="Resources\img\triangulo.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\txt\tipo_medida.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\img\" />
+    <None Include="Resources\img\info.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\txt\medida.txt" />
@@ -111,7 +120,7 @@
     <EmbeddedResource Include="Resources\txt\ecuaciones.txt" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\txt\formulas.txt" />
+    <None Include="Resources\img\GuiaVariables.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

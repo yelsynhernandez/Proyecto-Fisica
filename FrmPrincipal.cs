@@ -179,6 +179,8 @@ namespace ProyectoFisica
 
         private void ActualizarEcuaciones()
         {
+            dgvVariables.Rows.Clear();
+            dgvVariables.Columns.Clear();
             frm.ActualizarListaEcuaciones(cbCategoriaEcuacion.Text);
             frm.CargarEcuaciones(cbEcuacion);
         }
@@ -277,9 +279,25 @@ namespace ProyectoFisica
             string mensaje = "Autor: Yelsyn Hernández\n";
             mensaje += "Carnet: 9490-17-969\n";
             mensaje += "Curso: Física I\n";
-            mensaje += "Catedrático: Ferrant Fuentes\n";
-            mensaje += "Repositorio: https://github.com/yelsynhernandez/Proyecto-Fisica.git";
+            mensaje += "Catedrático: Ing. Ferrant Fuentes\n";
+            mensaje += "Repositorio: https://github.com/yelsynhernandez/Proyecto-Fisica.git\n";
+            mensaje += "Ecuaciones generadas con: https://editor.codecogs.com";
             MessageBox.Show(mensaje, "Autor", MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        private void btnGuiaFormulas_Click(object sender, EventArgs e)
+        {
+            FrmGuiaFormulas frmGuiaFormulas = new FrmGuiaFormulas();
+            frmGuiaFormulas.ShowDialog();
+        }
+
+        private void cómoConfigurarElProyectoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            string mensaje;
+            mensaje = "Si las imágenes no se cargan en el proyecto, descarga la carpeta \"source\"";
+            mensaje += " que se encuentra junto al ejecutable y pégalas en la raíz del disco c:/";
+
+            MessageBox.Show(mensaje, "Instrucciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

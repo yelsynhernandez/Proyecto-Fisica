@@ -1,9 +1,9 @@
 Movimiento rectilíneo uniforme|Distancia|C:/source/img/mru/distancia.png|x,t|x*t
-Movimiento rectilíneo uniforme|Velocidad|C:/source/img/mru/velocidad.png|d,t|d/t
-Movimiento rectilíneo uniforme|Tiempo|C:/source/img/mru/tiempo.png|d,v|d/v
+Movimiento rectilíneo uniforme|Velocidad|C:/source/img/mru/velocidad.png|x,t|x/t
+Movimiento rectilíneo uniforme|Tiempo|C:/source/img/mru/tiempo.png|x,v|x/v
 Movimiento rectilíneo uniforme|Distancia final|C:/source/img/mru/distancia_final.png|Xo,v,t|Xo+(v*t)
 Movimiento rectilíneo uniformemente variado|Velocidad final al cuadrado|C:/source/img/mrua/velocidad_final_cuadrado.png|Vo^2,a,x|(Vo*Vo)+(2*a*x)
-Movimiento rectilíneo uniformemente variado|Velocidad final|C:/source/img/mrua/velocidad_final.png|Vo,a,t|valor1+(a*t)
+Movimiento rectilíneo uniformemente variado|Velocidad final|C:/source/img/mrua/velocidad_final.png|Vo,a,t|Vo+(a*t)
 Movimiento rectilíneo uniformemente variado|Distancia (Sin aceleración)|C:/source/img/mrua/distancia_sa.png|Vf,Vo,t|((Vf+Vo)/2)*t
 Movimiento rectilíneo uniformemente variado|Aceleración|C:/source/img/mrua/aceleracion.png|Vf,Vo,t|(Vf-Vo)/t
 Movimiento rectilíneo uniformemente variado|Distancia (Con aceleración)|C:/source/img/mrua/distancia_ca.png|Vo,t,a|(Vo*t)+((a*(t*t))/2)
