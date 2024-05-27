@@ -1,0 +1,5 @@
+Movimiento rectilíneo uniforme
+Movimiento rectilíneo uniformemente variado
+Caída libre
+Tiro parabólico
+Movimiento circular uniforme

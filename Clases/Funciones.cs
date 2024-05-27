@@ -5,6 +5,7 @@ using System.Windows.Forms;
 using System.Reflection;
 using System.IO;
 using System.Collections.Generic;
+using System.Text;
 
 namespace ProyectoFisica.Clases
 {
@@ -12,33 +13,39 @@ namespace ProyectoFisica.Clases
     {
         readonly BD bd = new BD();
 
-        public void LlenarComboBox(ComboBox comboBox, string sp)
+        public bool EsDecimal(string texto)
         {
-            comboBox.Items.Clear();
-            comboBox.Items.Add("Seleccionar");
-            comboBox.SelectedIndex = 0;
-
-            using (SqlConnection conexion = bd.CrearConexion())
-            {
-                try
-                {
-                    conexion.Open();
-                    SqlCommand comando = new SqlCommand(sp, conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-
-                    SqlDataReader reader = comando.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        comboBox.Items.Add(reader["valor"].ToString());
-                    }
-                    reader.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            decimal valor;
+            return decimal.TryParse(texto, out valor);
         }
+
+        //public void LlenarComboBox(ComboBox comboBox, string sp)
+        //{
+        //    comboBox.Items.Clear();
+        //    comboBox.Items.Add("Seleccionar");
+        //    comboBox.SelectedIndex = 0;
+
+        //    using (SqlConnection conexion = bd.CrearConexion())
+        //    {
+        //        try
+        //        {
+        //            conexion.Open();
+        //            SqlCommand comando = new SqlCommand(sp, conexion);
+        //            comando.CommandType = CommandType.StoredProcedure;
+
+        //            SqlDataReader reader = comando.ExecuteReader();
+        //            while (reader.Read())
+        //            {
+        //                comboBox.Items.Add(reader["valor"].ToString());
+        //            }
+        //            reader.Close();
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            MessageBox.Show("Error al obtener datos: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //        }
+        //    }
+        //}
 
         public void LimpiarComboBox(ComboBox cb)
         {
@@ -56,7 +63,6 @@ namespace ProyectoFisica.Clases
                 string archivo = $"ProyectoFisica.Resources.txt.{nombreArchivo}.txt";
                 string[] recursos = assembly.GetManifestResourceNames();
 
-
                 using (Stream stream = assembly.GetManifestResourceStream(archivo))
                 {
                     if(stream == null)
@@ -64,12 +70,12 @@ namespace ProyectoFisica.Clases
                         throw new FileNotFoundException($"No se pudo encontrar el recurso incrustado '{archivo}'");
                     }
 
-                    using(StreamReader sr = new StreamReader(stream))
+                    using (StreamReader sr = new StreamReader(stream, Encoding.UTF8))
                     {
                         string linea;
                         while ((linea = sr.ReadLine()) != null)
                         {
-                            lineas.Add(linea);
+                            lineas.Add(linea.Trim());
                         }
                     }
                 }

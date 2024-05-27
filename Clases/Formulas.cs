@@ -11,45 +11,46 @@ namespace ProyectoFisica.Clases
     {
         Funciones funciones = new Funciones();
         BD bd = new BD();
-        List<Tuple<string, string, string, int>> ecuacion = new List<Tuple<string, string, string, int>>();
-        public void CargarCategorias(ComboBox cb)
+        //List<Tuple<string, string, string, int>> ecuacion = new List<Tuple<string, string, string, int>>();
+        //List<Tuple<string, string, string>> ecuacion = new List<Tuple<string, string, string>>();
+        Dictionary<string, string> diccionarioEcuaciones = new Dictionary<string, string>();
+        Dictionary<string, string> diccionarioVariables = new Dictionary<string, string>();
+        Dictionary<string, string> diccionarioFormulas = new Dictionary<string, string>();
+        public void CargarCategorias(ComboBox cbEcuacion)
         {
-            funciones.LlenarComboBox(cb, "listar_categoria_ecuacion");
+            try
+            {
+                List<string> lineas = funciones.ObtenerLineasArchivo("tipo_ecuacion");
+                funciones.LimpiarComboBox(cbEcuacion);
+                foreach(string linea in lineas)
+                {
+                    cbEcuacion.Items.Add(linea);
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public void ActualizarListaEcuaciones(string categoria)
         {
-            ecuacion.Clear();
-            using (SqlConnection conexion = bd.CrearConexion())
+            diccionarioEcuaciones.Clear();
+            diccionarioFormulas.Clear();
+            diccionarioVariables.Clear();
+            List<string> lineas = funciones.ObtenerLineasArchivo("ecuaciones");
+
+            foreach(string linea in lineas)
             {
-                try
+                string[] parte = linea.Split('|');
+                if(parte.Length == 5)
                 {
-                    conexion.Open();
-
-                    SqlCommand comando = new SqlCommand("ecuaciones", conexion);
-                    comando.CommandType = CommandType.StoredProcedure;
-
-                    comando.Parameters.AddWithValue("@categoria_ecuacion", categoria);
-
-                    SqlDataReader reader = comando.ExecuteReader();
-                    while (reader.Read())
+                    if (categoria == parte[0])
                     {
-                        ecuacion.Add(Tuple.Create(
-                                                  reader.GetString(reader.GetOrdinal("formula")),
-                                                  reader.GetString(reader.GetOrdinal("imagen")),
-                                                  reader.GetString(reader.GetOrdinal("variables")),
-                                                  reader.GetInt32(reader.GetOrdinal("id_ecuacion"))
-                                                  )
-                         
-                                      );
+                        diccionarioEcuaciones.Add(parte[1], parte[2]);
+                        diccionarioVariables.Add(parte[1], parte[3]);
+                        diccionarioFormulas.Add(parte[1], parte[4]);
                     }
-                    reader.Close();
-
-                    conexion.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -60,11 +61,11 @@ namespace ProyectoFisica.Clases
             cb.Items.Add("Seleccionar");
             try
             {
-                if (ecuacion.Count > 0)
+                if (diccionarioEcuaciones.Count > 0)
                 {
-                    foreach (var item in ecuacion)
+                    foreach (var item in diccionarioEcuaciones)
                     {
-                        cb.Items.Add(item.Item1);
+                        cb.Items.Add(item.Key);
                     }
                 }
             }
@@ -77,26 +78,19 @@ namespace ProyectoFisica.Clases
 
         public string BuscarImagen(string _ecuacion)
         {
-            var tuplaEncontrada = ecuacion.FirstOrDefault(t => t.Item1 == _ecuacion);
-
-            if (tuplaEncontrada != null)
-            {
-                return tuplaEncontrada.Item2;
-            }
-            else
-            {
-                return null;
-            }
+            return diccionarioEcuaciones.ContainsKey(_ecuacion) ? diccionarioEcuaciones[_ecuacion] : null;
         }
 
         public void CargarVariables(string _ecuacion, DataGridView dgv)
         {
             // Buscar la coincidencia en la lista
-            var tuplaEncontrada = ecuacion.Find(t => t.Item1 == _ecuacion);
+            //var tuplaEncontrada = ecuacion.Find(t => t.Item1 == _ecuacion);
 
-            if (tuplaEncontrada != null)
+            //if (tuplaEncontrada != null)
+            if(diccionarioVariables.ContainsKey(_ecuacion))
             {
-                string variables = tuplaEncontrada.Item3;
+                //string variables = tuplaEncontrada.Item3;
+                string variables = diccionarioVariables[_ecuacion];
                 string[] variablesArray = variables.Split(',');
                 int cantidadVariables = variablesArray.Length;
 
@@ -131,40 +125,40 @@ namespace ProyectoFisica.Clases
         {
             float resultado = 0;
 
-            using (SqlConnection conexion = bd.CrearConexion())
-            {
-                try
-                {
-                    var tuplaEncontrada = ecuacion.Find(t => t.Item1 == nombre_ecuacion);
-                    int id_ecuacion;
-                    if( tuplaEncontrada != null )
-                    {
-                        id_ecuacion = tuplaEncontrada.Item4;
-                        conexion.Open();
-                        SqlCommand comando = new SqlCommand("resolver_ecuacion", conexion);
-                        comando.CommandType = CommandType.StoredProcedure;
+            //using (SqlConnection conexion = bd.CrearConexion())
+            //{
+            //    try
+            //    {
+            //        var tuplaEncontrada = ecuacion.Find(t => t.Item1 == nombre_ecuacion);
+            //        int id_ecuacion;
+            //        if( tuplaEncontrada != null )
+            //        {
+            //            id_ecuacion = tuplaEncontrada.Item4;
+            //            conexion.Open();
+            //            SqlCommand comando = new SqlCommand("resolver_ecuacion", conexion);
+            //            comando.CommandType = CommandType.StoredProcedure;
 
-                        comando.Parameters.AddWithValue("@id_ecuacion", id_ecuacion);
-                        comando.Parameters.AddWithValue("@valores", valores);
-                        comando.Parameters.Add("@resultado", SqlDbType.Float);
-                        comando.Parameters["@resultado"].Direction = ParameterDirection.Output;
+            //            comando.Parameters.AddWithValue("@id_ecuacion", id_ecuacion);
+            //            comando.Parameters.AddWithValue("@valores", valores);
+            //            comando.Parameters.Add("@resultado", SqlDbType.Float);
+            //            comando.Parameters["@resultado"].Direction = ParameterDirection.Output;
 
-                        comando.ExecuteNonQuery();
+            //            comando.ExecuteNonQuery();
 
-                        resultado = float.Parse(comando.Parameters["@resultado"].Value.ToString());
-                    }
-                    else
-                    {
-                        MessageBox.Show("No se pudo encontrar la ecuación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+            //            resultado = float.Parse(comando.Parameters["@resultado"].Value.ToString());
+            //        }
+            //        else
+            //        {
+            //            MessageBox.Show("No se pudo encontrar la ecuación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
 
                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error al ejecutar el procedimiento almacenado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            //    }
+            //    catch (Exception ex)
+            //    {
+            //        MessageBox.Show("Error al ejecutar el procedimiento almacenado: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
 
             return resultado;
         }

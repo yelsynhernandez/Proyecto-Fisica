@@ -6,9 +6,9 @@ Masa,Onza
 Masa,Miligramo
 Masa,Arroba
 Longitud,Metro
-Longitud,Centímetro
-Longitud,Milímetro
-Longitud,Kilómetro
+Longitud,CentÃ­metro
+Longitud,MilÃ­metro
+Longitud,KilÃ³metro
 Longitud,Milla
 Longitud,Yarda
 Longitud,Pie
@@ -16,21 +16,21 @@ Longitud,Pulgada
 Tiempo,Segundo
 Tiempo,Minuto
 Tiempo,Hora
-Tiempo,Día
+Tiempo,DÃ­a
 Tiempo,Semana
 Tiempo,Mes
-Tiempo,Año
+Tiempo,AÃ±o
 Volumen,Litro
 Volumen,Mililitro
-Volumen,Centímetro cúbico
-Volumen,Galón
-Volumen,Pulgada cúbica
-Volumen,Pie cúbico
+Volumen,CentÃ­metro cÃºbico
+Volumen,GalÃ³n
+Volumen,Pulgada cÃºbica
+Volumen,Pie cÃºbico
 Temperatura,Celsius
 Temperatura,fahrenheit
 Temperatura,Kelvin
 Velocidad,Metros por segundo
-Velocidad,Kilómetros por hora
+Velocidad,KilÃ³metros por hora
 Velocidad,Millas por hora
 Velocidad,Pies por segundo
 Velocidad,Pies por minuto

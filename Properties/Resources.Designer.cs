@@ -150,6 +150,19 @@ namespace ProyectoFisica.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Movimiento rectilíneo uniforme
+        ///Movimiento rectilíneo uniformemente variado
+        ///Caída libre
+        ///Tiro parabólico
+        ///Movimiento circular uniforme.
+        /// </summary>
+        internal static string tipo_ecuacion {
+            get {
+                return ResourceManager.GetString("tipo_ecuacion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Masa,C:/proyecto/img/convertidor/masa.png
         ///Longitud,C:/proyecto/img/convertidor/longitud.png
         ///Tiempo,C:/proyecto/img/convertidor/tiempo.png

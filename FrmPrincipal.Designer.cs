@@ -134,7 +134,7 @@
             this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
             this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(277, 22);
             this.acercaDeToolStripMenuItem.Text = "Acerca de";
-            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.acercaDeToolStripMenuItem_Click);
+            this.acercaDeToolStripMenuItem.Click += new System.EventHandler(this.AcercaDeToolStripMenuItem_Click);
             // 
             // cómoConfigurarElProyectoToolStripMenuItem
             // 
@@ -353,7 +353,7 @@
             this.btnCalcularEcuacion.TabIndex = 13;
             this.btnCalcularEcuacion.Text = "Calcular";
             this.btnCalcularEcuacion.UseVisualStyleBackColor = true;
-            this.btnCalcularEcuacion.Click += new System.EventHandler(this.btnCalcularEcuacion_Click);
+            this.btnCalcularEcuacion.Click += new System.EventHandler(this.BtnCalcularEcuacion_Click);
             // 
             // btnActualizarEcuaciones
             // 
@@ -512,7 +512,7 @@
             this.btnLimpiarComponentes.TabIndex = 12;
             this.btnLimpiarComponentes.Text = "Limpiar";
             this.btnLimpiarComponentes.UseVisualStyleBackColor = true;
-            this.btnLimpiarComponentes.Click += new System.EventHandler(this.btnLimpiarComponentes_Click);
+            this.btnLimpiarComponentes.Click += new System.EventHandler(this.BtnLimpiarComponentes_Click);
             // 
             // btnCalcularcomponentes
             // 
@@ -523,7 +523,7 @@
             this.btnCalcularcomponentes.TabIndex = 9;
             this.btnCalcularcomponentes.Text = "Calcular";
             this.btnCalcularcomponentes.UseVisualStyleBackColor = true;
-            this.btnCalcularcomponentes.Click += new System.EventHandler(this.btnCalcularcomponentes_Click);
+            this.btnCalcularcomponentes.Click += new System.EventHandler(this.BtnCalcularcomponentes_Click);
             // 
             // txtComponenteY
             // 
