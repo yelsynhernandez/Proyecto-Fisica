@@ -1,23 +1,24 @@
-Movimiento rectilíneo uniforme|Distancia|C:/proyecto/img/mru/distancia.png|x,t|x*t
-Movimiento rectilíneo uniforme|Velocidad|C:/proyecto/img/mru/velocidad.png|d,t|valor1/valor2
-Movimiento rectilíneo uniforme|Tiempo|C:/proyecto/img/mru/tiempo.png|d,v|valor1/valor2
-Movimiento rectilíneo uniforme|Distancia final|C:/proyecto/img/mru/distancia_final.png|Xo, v,t|valor1+(valor2*valor3)
-Movimiento rectilíneo uniformemente variado|Velocidad final al cuadrado|C:/proyecto/img/mrua/velocidad_final_cuadrado.png|Vo^2,a,x|power(valor1,2)+(2*valor2*valor3)
-Movimiento rectilíneo uniformemente variado|Velocidad final|C:/proyecto/img/mrua/velocidad_final.png|Vo,a,t|valor1+(valor2*valor3)
-Movimiento rectilíneo uniformemente variado|Distancia (Sin aceleración)|C:/proyecto/img/mrua/distancia_sa.png|Vf,Vo,t|((valor1+valor2)/2)*valor3
-Movimiento rectilíneo uniformemente variado|Aceleración|C:/proyecto/img/mrua/aceleracion.png|Vf,Vo,t|(valor1-valor2)/valor3
-Movimiento rectilíneo uniformemente variado|Distancia (Con aceleración)|C:/proyecto/img/mrua/distancia_ca.png|Vo,t,a|(valor1*valor2)+((valor3*power(valor2,2))/2)
-Caída libre|Velocidad final|C:/proyecto/img/caida_libre/velocidad_final.png|Vo,t|valor1+(9.8*valor2)
-Caída libre|Altura (sin vf)|C:/proyecto/img/caida_libre/altura_sin_vf.png|Vo,t|(valor1*valor2)+((9.8*power(valor2,2)/2)
-Caída libre|Altura (sin g)|C:/proyecto/img/caida_libre/altura_sin_g.png|Vo,Vf,t|((valor1+valor2)/2*valor3)
-Caída libre|Velocidad final al cuadrado|C:/proyecto/img/caida_libre/velocidad_final_cuadrado.png|Vo,h|power(valor1,2)+(2*9.8.valor3)
-Movimiento circular uniforme|Aceleración centrípeta|C:/proyecto/img/mcu/aceleracion_centripeta.png|V,r|power(valor1,2)/valor2
-Movimiento circular uniforme|Frecuencia|C:/proyecto/img/mcu/frecuencia.png|T|(2*3.1416)/valor1
-Movimiento circular uniforme|Período|C:/proyecto/img/mcu/periodo.png|n|1/valor1
-Tiro parabólico|Distancia (X)|C:/proyecto/img/tiro_parabolico/distancia_x.png|Vo,t|valor1*valor2
-Tiro parabólico|Dos veces gravedad altura|C:/proyecto/img/tiro_parabolico/dos_g_y.png|Vy,Vo|power(valor1,2)-power(valor2,2)
-Tiro parabólico|Altura (Sin Vo)|C:/proyecto/img/tiro_parabolico/altura_y_sin_vo.png|Vy,t|(valor1*valor2)-(0.5*9.8*power(valor2,2))
-Tiro parabólico|Altura (Sin V)|C:/proyecto/img/tiro_parabolico/altura_y_sin_v.png|Vo,t|(valor1*valor2)+(0.5*9.8*power(valor2,2))
-Tiro parabólico|Velocidad (Y)|C:/proyecto/img/tiro_parabolico/velocidad_y.png|Voy,t|valor1+(9.8*valor2)
-Tiro parabólico|Altura (Sin gravedad)|C:/proyecto/img/tiro_parabolico/altura_y_sin_g.png|Vy,Voy,t|((valor1+valor2)/2)*valor3
-Tiro parabólico|Velocidad (X)|C:/proyecto/img/tiro_parabolico/velocidad_x.png|Vox|valor1
+Movimiento rectilíneo uniforme|Distancia|C:/source/img/mru/distancia.png|x,t|x*t
+Movimiento rectilíneo uniforme|Velocidad|C:/source/img/mru/velocidad.png|d,t|d/t
+Movimiento rectilíneo uniforme|Tiempo|C:/source/img/mru/tiempo.png|d,v|d/v
+Movimiento rectilíneo uniforme|Distancia final|C:/source/img/mru/distancia_final.png|Xo,v,t|Xo+(v*t)
+Movimiento rectilíneo uniformemente variado|Velocidad final al cuadrado|C:/source/img/mrua/velocidad_final_cuadrado.png|Vo^2,a,x|(Vo*Vo)+(2*a*x)
+Movimiento rectilíneo uniformemente variado|Velocidad final|C:/source/img/mrua/velocidad_final.png|Vo,a,t|valor1+(a*t)
+Movimiento rectilíneo uniformemente variado|Distancia (Sin aceleración)|C:/source/img/mrua/distancia_sa.png|Vf,Vo,t|((Vf+Vo)/2)*t
+Movimiento rectilíneo uniformemente variado|Aceleración|C:/source/img/mrua/aceleracion.png|Vf,Vo,t|(Vf-Vo)/t
+Movimiento rectilíneo uniformemente variado|Distancia (Con aceleración)|C:/source/img/mrua/distancia_ca.png|Vo,t,a|(Vo*t)+((a*(t*t))/2)
+Caída libre|Velocidad final|C:/source/img/caida_libre/velocidad_final.png|Vo,t|Vo+(9.8*t)
+Caída libre|Altura (sin vf)|C:/source/img/caida_libre/altura_sin_vf.png|Vo,t|(Vo*t)+((9.8*power(t,2)/2)
+Caída libre|Altura (sin g)|C:/source/img/caida_libre/altura_sin_g.png|Vo,Vf,t|((Vo+Vf)/2*t)
+Caída libre|Velocidad final al cuadrado|C:/source/img/caida_libre/velocidad_final_cuadrado.png|Vo,h|(Vo*Vo)+(2*9.8*h)
+Movimiento circular uniforme|Aceleración centrípeta|C:/source/img/mcu/aceleracion_centripeta.png|V,r|(V*V)/r
+Movimiento circular uniforme|Velocidad angular|C:/source/img/mcu/velocidad_angular.png|T|(2*3.1416)/T
+Movimiento circular uniforme|Período|C:/source/img/mcu/periodo.png|f|1/f
+Movimiento circular uniforme|Frecuencia|C:/source/img/mcu/frecuencia.png|T|1/T
+Tiro parabólico|Distancia (X)|C:/source/img/tiro_parabolico/distancia_x.png|Vo,t|Vo*t
+Tiro parabólico|Dos veces gravedad altura|C:/source/img/tiro_parabolico/dos_g_y.png|Vy,Vo|(Vy*Vy)-power(Vo*Vo)
+Tiro parabólico|Altura (Sin Vo)|C:/source/img/tiro_parabolico/altura_y_sin_vo.png|Vy,t|(Vy*t)-(0.5*9.8*(t*t))
+Tiro parabólico|Altura (Sin V)|C:/source/img/tiro_parabolico/altura_y_sin_v.png|Vo,t|(Vo*t)+(0.5*9.8*(t*t))
+Tiro parabólico|Velocidad (Y)|C:/source/img/tiro_parabolico/velocidad_y.png|Voy,t|Voy+(9.8*t)
+Tiro parabólico|Altura (Sin gravedad)|C:/source/img/tiro_parabolico/altura_y_sin_g.png|Vy,Voy,t|((Vy+Voy)/2)*t
+Tiro parabólico|Velocidad (X)|C:/source/img/tiro_parabolico/velocidad_x.png|Vox|Vox
