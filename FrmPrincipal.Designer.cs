@@ -327,7 +327,7 @@
             this.btnGuiaFormulas.Image = global::ProyectoFisica.Properties.Resources.info;
             this.btnGuiaFormulas.Location = new System.Drawing.Point(835, 106);
             this.btnGuiaFormulas.Name = "btnGuiaFormulas";
-            this.btnGuiaFormulas.Size = new System.Drawing.Size(35, 35);
+            this.btnGuiaFormulas.Size = new System.Drawing.Size(35, 30);
             this.btnGuiaFormulas.TabIndex = 17;
             this.btnGuiaFormulas.UseVisualStyleBackColor = true;
             this.btnGuiaFormulas.Click += new System.EventHandler(this.btnGuiaFormulas_Click);
@@ -362,7 +362,7 @@
             // 
             this.btnCalcularEcuacion.Location = new System.Drawing.Point(647, 400);
             this.btnCalcularEcuacion.Name = "btnCalcularEcuacion";
-            this.btnCalcularEcuacion.Size = new System.Drawing.Size(75, 25);
+            this.btnCalcularEcuacion.Size = new System.Drawing.Size(75, 30);
             this.btnCalcularEcuacion.TabIndex = 13;
             this.btnCalcularEcuacion.Text = "Calcular";
             this.btnCalcularEcuacion.UseVisualStyleBackColor = true;
@@ -372,7 +372,7 @@
             // 
             this.btnActualizarEcuaciones.Location = new System.Drawing.Point(719, 108);
             this.btnActualizarEcuaciones.Name = "btnActualizarEcuaciones";
-            this.btnActualizarEcuaciones.Size = new System.Drawing.Size(110, 35);
+            this.btnActualizarEcuaciones.Size = new System.Drawing.Size(110, 30);
             this.btnActualizarEcuaciones.TabIndex = 12;
             this.btnActualizarEcuaciones.Text = "Actualizar";
             this.btnActualizarEcuaciones.UseVisualStyleBackColor = true;
