@@ -15,9 +15,7 @@ namespace ProyectoFisica.Clases
             try
             {
                 ListarUnidadesDeMedida();
-                cb.Items.Clear();
-                cb.Items.Add("Seleccionar");
-                cb.SelectedIndex = 0;
+                funciones.LimpiarComboBox(cb);
                 if (unidadMedida.Count > 0)
                 {
                     foreach (var item in unidadMedida)
